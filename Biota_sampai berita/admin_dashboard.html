@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin - Biota</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tambahkan dua link berikut ini -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-green-50 flex">
+    <!-- Sidebar -->
+    <aside class="w-64 h-screen bg-white fixed left-0 top-0 overflow-y-auto">
+        <div class="p-6">
+            <div class="flex items-center space-x-2">
+                <img src="asset/logo.png" alt="Biota" class="w-12">
+                <span class="text-2xl font-bold">Biota</span>
+            </div>
+        </div>
+        <nav class="mt-6">
+            <div class="px-6 py-3">
+                <a href="#" class="flex items-center space-x-3 text-gray-700 hover:text-green-700">
+                    <span class="material-icons">home</span>
+                    <span>Beranda</span>
+                </a>
+            </div>
+            <div class="px-6 py-3">
+                <button onclick="toggleMenu('gisMenu')" class="flex items-center justify-between w-full text-gray-700 hover:text-green-700">
+                    <div class="flex items-center space-x-3">
+                        <span class="material-icons">map</span>
+                        <span>GIS Data</span>
+                    </div>
+                    <span class="material-icons transform transition-transform" id="gisMenuIcon">expand_more</span>
+                </button>
+                <div id="gisMenu" class="ml-8 mt-2 space-y-2 hidden">
+                    <a href="#" class="block text-gray-600 hover:text-green-700">Approval Data GIS</a>
+                    <a href="#" class="block text-gray-600 hover:text-green-700">Manage Data GIS</a>
+                </div>
+            </div>
+            <div class="px-6 py-3">
+                <a href="#" class="flex items-center space-x-3 text-gray-700 hover:text-green-700">
+                    <span class="material-icons">event</span>
+                    <span>Event</span>
+                </a>
+            </div>
+            <div class="px-6 py-3">
+                <button onclick="toggleMenu('userMenu')" class="flex items-center justify-between w-full text-gray-700 hover:text-green-700">
+                    <div class="flex items-center space-x-3">
+                        <span class="material-icons">people</span>
+                        <span>User Management</span>
+                    </div>
+                    <span class="material-icons transform transition-transform" id="userMenuIcon">expand_more</span>
+                </button>
+                <div id="userMenu" class="ml-8 mt-2 space-y-2 hidden">
+                    <a href="#" class="block text-gray-600 hover:text-green-700">Daftar User</a>
+                    <a href="#" class="block text-gray-600 hover:text-green-700">Daftar Role</a>
+                </div>
+            </div>
+            <div class="px-6 py-3">
+                <button onclick="toggleMenu('eduMenu')" class="flex items-center justify-between w-full text-gray-700 hover:text-green-700">
+                    <div class="flex items-center space-x-3">
+                        <span class="material-icons">library_books</span>
+                        <span>Tambah Data Edukasi</span>
+                    </div>
+                    <span class="material-icons transform transition-transform" id="eduMenuIcon">expand_more</span>
+                </button>
+                <div id="eduMenu" class="ml-8 mt-2 space-y-2 hidden">
+                    <a href="#" class="block text-gray-600 hover:text-green-700">Manage Data Edukasi</a>
+                    <a href="#" class="block text-gray-600 hover:text-green-700">Formulir</a>
+                </div>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="ml-64 flex-1">
+        <div class="flex justify-between items-center mb-8 bg-white p-4 h-[72px] sticky top-0 z-10">
+            <div>
+                <h1 class="text-3xl font-bold text-green-900">Dashboard Admin</h1>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative" style="position: static;">
+                    <button id="notificationButton" class="relative hover:bg-gray-100 p-2 rounded-full transition-colors">
+                        <span class="material-icons text-gray-600">notifications</span>
+                        <span class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+                    </button>
+                    <div id="notificationPopup" class="hidden fixed mt-2 w-96 bg-white/95 backdrop-blur-sm rounded-xl shadow-lg z-[9999] border border-gray-100" style="right: 1rem; top: 4rem;">
+                        <div class="p-4 border-b border-gray-100">
+                            <h3 class="font-semibold text-gray-900">Notifikasi</h3>
+                        </div>
+                        <div class="max-h-96 overflow-y-auto">
+                            <div class="p-4 border-b border-gray-100 hover:bg-gray-50 cursor-pointer">
+                                <div class="flex items-start space-x-3">
+                                    <span class="material-icons text-green-600">eco</span>
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-900">Spesies Baru Ditambahkan</p>
+                                        <p class="text-sm text-gray-500">@florahunter@gmail.com baru saja menambahkan spesies baru</p>
+                                        <p class="text-xs text-gray-400 mt-1">Baru saja</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4 border-b border-gray-100 hover:bg-gray-50 cursor-pointer">
+                                <div class="flex items-start space-x-3">
+                                    <span class="material-icons text-blue-600">event</span>
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-900">Event Baru</p>
+                                        <p class="text-sm text-gray-500">@greenpeace.id baru saja menambahkan event baru</p>
+                                        <p class="text-xs text-gray-400 mt-1">5 menit yang lalu</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4 hover:bg-gray-50 cursor-pointer">
+                                <div class="flex items-start space-x-3">
+                                    <span class="material-icons text-yellow-600">lightbulb</span>
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-900">Fun Fact Baru</p>
+                                        <p class="text-sm text-gray-500">kaluna@team.biota baru saja menambahkan fun fact</p>
+                                        <p class="text-xs text-gray-400 mt-1">10 menit yang lalu</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 border-t border-gray-100 text-center">
+                            <a href="#" class="text-sm text-green-600 hover:text-green-700 font-medium">Lihat Semua Notifikasi</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <span class="w-10 h-10 bg-green-800 rounded-full flex items-center justify-center text-white font-bold">K</span>
+                    <span class="font-semibold">Karina Catur</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Welcome Card -->
+        <div class="bg-green-200 rounded-xl p-6 mb-8 flex justify-between items-center">
+            <div>
+                <h2 class="text-2xl font-bold text-green-900 mb-2">Welcome, Karina Catur!</h2>
+                <p class="text-green-800">Kelola data lingkungan dan pengguna BIOTA dari sini.</p>
+            </div>
+            <button onclick="window.location.href='Prelogin_index.html'" class="bg-red-400 text-white px-6 py-2 rounded-full hover:bg-red-500 transition-colors flex items-center space-x-2">
+                <span class="material-icons">logout</span>
+                <span>Keluar</span>
+            </button>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-2 gap-8 mb-8">
+            <!-- Pengajuan Data GIS Chart -->
+            <div class="bg-green-200 rounded-xl p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-semibold text-green-900">Pengajuan Data GIS</h3>
+                    <select class="bg-green-300 text-green-900 px-3 py-1 rounded-lg" id="gisMonthSelect" onchange="updateGISChart(this.value)">
+                        <option value="0">Januari</option>
+                        <option value="1">Februari</option>
+                        <option value="2">Maret</option>
+                        <option value="3">April</option>
+                        <option value="4">Mei</option>
+                        <option value="5">Juni</option>
+                        <option value="6">Juli</option>
+                        <option value="7">Agustus</option>
+                        <option value="8">September</option>
+                        <option value="9">Oktober</option>
+                        <option value="10">November</option>
+                        <option value="11">Desember</option>
+                    </select>
+                </div>
+                <div class="h-48 relative"><!-- Tambahkan div container dengan tinggi tetap -->
+                    <canvas id="gisChart"></canvas>
+                </div>
+                <div class="mt-4 flex justify-between items-center">
+                    <div>
+                        <p class="text-2xl font-bold text-green-900">456</p>
+                        <p class="text-green-700">Total Pengajuan</p>
+                    </div>
+                    <div class="bg-green-300 px-3 py-1 rounded-full text-green-900">
+                        + 12% dari bulan lalu
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pertumbuhan Pengguna Chart -->
+            <div class="bg-green-200 rounded-xl p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-semibold text-green-900">Pertumbuhan Pengguna</h3>
+                    <select class="bg-green-300 text-green-900 px-3 py-1 rounded-lg" id="userMonthSelect" onchange="updateUserChart(this.value)">
+                        <option value="0">Januari</option>
+                        <option value="1">Februari</option>
+                        <option value="2">Maret</option>
+                        <option value="3">April</option>
+                        <option value="4">Mei</option>
+                        <option value="5">Juni</option>
+                        <option value="6">Juli</option>
+                        <option value="7">Agustus</option>
+                        <option value="8">September</option>
+                        <option value="9">Oktober</option>
+                        <option value="10">November</option>
+                        <option value="11">Desember</option>
+                    </select>
+                </div>
+                <div class="h-48 relative"><!-- Tambahkan div container dengan tinggi tetap -->
+                    <canvas id="userChart"></canvas>
+                </div>
+                <div class="mt-4 flex justify-between items-center">
+                    <div>
+                        <p class="text-2xl font-bold text-green-900">1,315</p>
+                        <p class="text-green-700">Total Pengguna</p>
+                    </div>
+                    <div class="bg-green-300 px-3 py-1 rounded-full text-green-900">
+                        + 17% dari bulan lalu
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dan update script Chart.js -->
+        <script>
+            // Data untuk grafik
+            const gisData = [30, 35, 38, 40, 42, 45, 43, 40, 38, 35, 32, 45];
+            const userData = [80, 95, 110, 100, 120, 115, 125, 130, 40, 110, 150, 180];
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            let gisChart, userChart;
+
+            // Fungsi untuk membuat grafik GIS
+            function createGISChart() {
+                const gisCtx = document.getElementById('gisChart').getContext('2d');
+                gisChart = new Chart(gisCtx, {
+                    type: 'line',
+                    data: {
+                        labels: months,
+                        datasets: [{
+                            label: 'Pengajuan Data GIS',
+                            data: gisData,
+                            borderColor: '#065f46',
+                            tension: 0.4,
+                            pointBackgroundColor: '#fff'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                grid: {
+                                    color: 'rgba(0, 0, 0, 0.1)'
+                                }
+                            },
+                            x: {
+                                grid: {
+                                    display: false
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Fungsi untuk membuat grafik User
+            function createUserChart() {
+                const userCtx = document.getElementById('userChart').getContext('2d');
+                userChart = new Chart(userCtx, {
+                    type: 'line',
+                    data: {
+                        labels: months,
+                        datasets: [{
+                            label: 'Pertumbuhan Pengguna',
+                            data: userData,
+                            borderColor: '#065f46',
+                            tension: 0.4,
+                            pointBackgroundColor: '#fff'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                grid: {
+                                    color: 'rgba(0, 0, 0, 0.1)'
+                                }
+                            },
+                            x: {
+                                grid: {
+                                    display: false
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Fungsi untuk mengupdate grafik GIS
+            function updateGISChart(selectedMonth) {
+                const monthIndex = parseInt(selectedMonth);
+                const sixMonthsData = [];
+                const sixMonthsLabels = [];
+                
+                // Ambil data 6 bulan dari bulan yang dipilih
+                for(let i = 0; i < 6; i++) {
+                    const dataIndex = (monthIndex + i) % 12;
+                    sixMonthsData.push(gisData[dataIndex]);
+                    sixMonthsLabels.push(months[dataIndex]);
+                }
+
+                gisChart.data.labels = sixMonthsLabels;
+                gisChart.data.datasets[0].data = sixMonthsData;
+                gisChart.update();
+            }
+
+            // Fungsi untuk mengupdate grafik User
+            function updateUserChart(selectedMonth) {
+                const monthIndex = parseInt(selectedMonth);
+                const sixMonthsData = [];
+                const sixMonthsLabels = [];
+                
+                // Ambil data 6 bulan dari bulan yang dipilih
+                for(let i = 0; i < 6; i++) {
+                    const dataIndex = (monthIndex + i) % 12;
+                    sixMonthsData.push(userData[dataIndex]);
+                    sixMonthsLabels.push(months[dataIndex]);
+                }
+
+                userChart.data.labels = sixMonthsLabels;
+                userChart.data.datasets[0].data = sixMonthsData;
+                userChart.update();
+            }
+
+            // Inisialisasi grafik
+            createGISChart();
+            createUserChart();
+
+            // Set default view ke bulan Januari
+            document.getElementById('gisMonthSelect').value = '0';
+            document.getElementById('userMonthSelect').value = '0';
+            updateGISChart('0');
+            updateUserChart('0');
+        </script>
+
+        <!-- Recent Activities -->
+        <div class="bg-green-200 rounded-xl p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-lg font-semibold text-green-900">Aktivitas Terbaru</h3>
+                <a href="#" class="text-green-700 hover:text-green-900">Lihat semua aktivitas</a>
+            </div>
+            <div class="space-y-4">
+                <div class="flex items-start space-x-4">
+                    <div class="p-2 bg-green-300 rounded-lg">
+                        <span class="material-icons text-green-700">description</span>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-green-900">Pengajuan Data GIS Baru</h4>
+                        <p class="text-green-700">Pemetaan Hutan Mangrove di Pantai Tahura</p>
+                        <p class="text-sm text-green-600">2 jam yang lalu</p>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-4">
+                    <div class="p-2 bg-green-300 rounded-lg">
+                        <span class="material-icons text-green-700">person_add</span>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-green-900">Pengguna Baru Mendaftar</h4>
+                        <p class="text-green-700">5 pengguna baru bergabung hari ini!</p>
+                        <p class="text-sm text-green-600">3 jam yang lalu</p>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-4">
+                    <div class="p-2 bg-green-300 rounded-lg">
+                        <span class="material-icons text-green-700">event</span>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-green-900">Event Baru Ditambahkan</h4>
+                        <p class="text-green-700">Event Penanaman Mangrove di Pantai Merak</p>
+                        <p class="text-sm text-green-600">5 jam yang lalu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Tambahkan script ini sebelum penutup tag body -->
+    <script>
+    function toggleMenu(menuId) {
+        const menu = document.getElementById(menuId);
+        const icon = document.getElementById(menuId + 'Icon');
+        
+        // Toggle menu visibility
+        menu.classList.toggle('hidden');
+        
+        // Rotate icon
+        if (menu.classList.contains('hidden')) {
+            icon.style.transform = 'rotate(0deg)';
+        } else {
+            icon.style.transform = 'rotate(180deg)';
+        }
+    }
+    </script>
+    <script>
+    function toggleNotification() {
+        const popup = document.getElementById('notificationPopup');
+        popup.classList.toggle('hidden');
+    
+        // Close popup when clicking outside
+        document.addEventListener('click', function closePopup(e) {
+            const popup = document.getElementById('notificationPopup');
+            const button = document.querySelector('[onclick="toggleNotification()"]');
+            
+            if (!popup.contains(e.target) && e.target !== button) {
+                popup.classList.add('hidden');
+                document.removeEventListener('click', closePopup);
+            }
+        });
+    }
+    </script>
+</body>
+</html>
+
+<!-- Tambahkan script ini di bagian bawah body, sebelum penutup tag body -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const button = document.getElementById('notificationButton');
+    const popup = document.getElementById('notificationPopup');
+    let isOpen = false;
+
+    button.addEventListener('click', function(e) {
+        e.stopPropagation();
+        isOpen = !isOpen;
+        if (isOpen) {
+            popup.classList.remove('hidden');
+        } else {
+            popup.classList.add('hidden');
+        }
+    });
+
+    document.addEventListener('click', function(e) {
+        if (isOpen && !popup.contains(e.target) && e.target !== button) {
+            popup.classList.add('hidden');
+            isOpen = false;
+        }
+    });
+});
+</script>

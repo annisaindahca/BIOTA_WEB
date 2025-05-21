@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ - BIOTA</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-b from-white to-green-50 min-h-screen flex flex-col">
+  <!-- Navbar -->
+  <nav class="flex items-center justify-between p-4 shadow-md bg-white fixed w-full z-50">
+    <div class="flex items-center space-x-2">
+      <img src="asset/logo.png" alt="Logo Biota" class="w-10 h-10">
+      <span class="font-bold text-xl text-green-700">Biota</span>
+    </div>
+    <ul class="hidden md:flex items-center space-x-6">
+      <li><a href="index.html" class="hover:text-green-600">Beranda</a></li>
+      <li><a href="TentangKami.html" class="hover:text-green-600">Tentang Kami</a></li>
+      <li><a href="DaftarSpesies.html" class="hover:text-green-600">Daftar Spesies</a></li>
+      <li><a href="JelajahiPeta.html" class="hover:text-green-600">Jelajahi Peta</a></li>
+    </ul>
+    <a href="login.html" class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-full">Masuk</a>
+  </nav>
+  <div class="h-20"></div>
+  <main class="flex-1 flex flex-col items-center px-2 pb-10">
+    <div class="max-w-lg w-full mt-6">
+      <div class="text-center mb-4">
+        <h2 class="text-green-800 font-bold text-xl">Punya Pertanyaan? Kami Siap Membantu! <span>🤔</span></h2>
+        <p class="text-green-900 text-sm mt-1">Yuk cari jawabanmu seputar penggunaan BIOTA, pelaporan spesies, hingga keamanan data.</p>
+      </div>
+      <div class="flex items-center mb-4">
+        <input type="text" placeholder="Ketik pertanyaan kamu di sini..." class="w-full p-3 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-green-400 placeholder-gray-400" />
+      </div>
+      <div id="faq-list" class="space-y-3">
+        <!-- FAQ Items -->
+        <div class="rounded-lg bg-lime-100 overflow-hidden transition-all duration-300">
+          <button class="w-full flex justify-between items-center px-4 py-3 text-left font-semibold text-green-900 focus:outline-none faq-question transition-colors duration-200">
+            <span>Apa itu BIOTA?</span>
+            <svg class="w-5 h-5 transition-transform duration-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer px-4 pb-3 text-green-900 text-sm hidden transition-all duration-300">Biota adalah platform edukasi digital yang memungkinkan pengguna untuk menandai lokasi flora dan fauna Indonesia sekaligus belajar tentang spesies endemik dan dilindungi.</div>
+        </div>
+        <div class="rounded-lg bg-lime-100 overflow-hidden">
+          <button class="w-full flex justify-between items-center px-4 py-3 text-left font-semibold text-green-900 focus:outline-none faq-question">
+            <span>Apakah saya perlu login untuk melihat daftar spesies?</span>
+            <svg class="w-5 h-5 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer px-4 pb-3 text-green-900 text-sm hidden">Tidak perlu. Kamu tetap bisa melihat untuk menyimak lokasi atau fitur bentuk/tulis.</div>
+        </div>
+        <div class="rounded-lg bg-lime-100 overflow-hidden">
+          <button class="w-full flex justify-between items-center px-4 py-3 text-left font-semibold text-green-900 focus:outline-none faq-question">
+            <span>Bagaimana cara menambahkan spesies yang saya temukan?</span>
+            <svg class="w-5 h-5 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer px-4 pb-3 text-green-900 text-sm hidden">Setelah login, klik halaman Jelajahi Peta, lalu tekan tombol "+ Tambahkan Spesies" dan lengkapi datanya.</div>
+        </div>
+        <div class="rounded-lg bg-lime-100 overflow-hidden">
+          <button class="w-full flex justify-between items-center px-4 py-3 text-left font-semibold text-green-900 focus:outline-none faq-question">
+            <span>Apa itu verifikasi laporan?</span>
+            <svg class="w-5 h-5 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer px-4 pb-3 text-green-900 text-sm hidden">Setiap data masuk akan diverifikasi oleh admin sebelum ditampilkan di peta, guna menjaga akurasi data dan mencegah duplikasi.</div>
+        </div>
+        <div class="rounded-lg bg-lime-100 overflow-hidden">
+          <button class="w-full flex justify-between items-center px-4 py-3 text-left font-semibold text-green-900 focus:outline-none faq-question">
+            <span>Apakah anak-anak bisa menggunakan Biota?</span>
+            <svg class="w-5 h-5 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer px-4 pb-3 text-green-900 text-sm hidden">Bisa, asalkan anak-anak di bawah 13 tahun didampingi orang tua atau wali saat mendaftar dan menggunakan aplikasi.</div>
+        </div>
+        <div class="rounded-lg bg-lime-100 overflow-hidden">
+          <button class="w-full flex justify-between items-center px-4 py-3 text-left font-semibold text-green-900 focus:outline-none faq-question">
+            <span>Apakah dataku aman di Biota?</span>
+            <svg class="w-5 h-5 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer px-4 pb-3 text-green-900 text-sm hidden">Ya! Semua informasi pribadi pengguna akan dirahasiakan dan tidak akan dibagikan tanpa persetujuan.</div>
+        </div>
+        <div class="rounded-lg bg-lime-100 overflow-hidden">
+          <button class="w-full flex justify-between items-center px-4 py-3 text-left font-semibold text-green-900 focus:outline-none faq-question">
+            <span>Apa itu event konservasi di Biota?</span>
+            <svg class="w-5 h-5 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer px-4 pb-3 text-green-900 text-sm hidden">Biota rutin mempopulerkan event lingkungan seperti tanam pohon, webinar edukasi, aksi jaga lingkungan, dan mitra kami.</div>
+        </div>
+        <div class="rounded-lg bg-lime-100 overflow-hidden">
+          <button class="w-full flex justify-between items-center px-4 py-3 text-left font-semibold text-green-900 focus:outline-none faq-question">
+            <span>Bagaimana cara ikut event?</span>
+            <svg class="w-5 h-5 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer px-4 pb-3 text-green-900 text-sm hidden">Kamu bisa klik "Event" di navbar dan daftar langsung via WhatsApp ke admin Biota.</div>
+        </div>
+      </div>
+      <div class="mt-6 bg-white rounded-xl shadow p-4 text-center">
+        <div class="font-bold text-gray-800 mb-2">Belum Ketemu Jawabanmu?</div>
+        <div class="mb-3 text-gray-700">Masih bingung? Tim BIOTA siap bantu kamu.</div>
+        <a href="https://wa.me/6281234567890" target="_blank" class="block w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-lg transition">Hubungi Admin via WhatsApp</a>
+      </div>
+    </div>
+  </main>
+  <!-- Footer -->
+<footer class="bg-gradient-to-t from-green-900 to-green-700 text-white py-12 px-6">
+    <div class="max-w-4xl mx-auto space-y-8">
+      <!-- Logo dan Deskripsi -->
+      <div>
+        <div class="flex items-center mb-4">
+          <img src="asset/logo.png" alt="Logo Biota" class="w-10 h-10">
+          <span class="font-bold text-2xl ml-2">Biota</span>
+        </div>
+        <p>Bersama Lestarikan Keajaiban Alam Indonesia</p>
+        <div class="flex space-x-4 mt-4">
+          <a href="#"><img src="asset/logo ig.png" alt="Instagram" class="w-6 h-6"></a>
+          <a href="#"><img src="asset/logo tt.png" alt="TikTok" class="w-6 h-6"></a>
+          <a href="#"><img src="asset/logo yt.png" alt="YouTube" class="w-6 h-6"></a>
+        </div>
+      </div>
+  
+      <!-- Link Cepat -->
+      <div>
+        <h3 class="font-bold mb-2">Link Cepat</h3>
+        <ul class="space-y-1">
+          <li><a href="#" class="hover:underline">Tentang Kami</a></li>
+          <li><a href="FAQ.html" class="hover:underline">FAQ</a></li>
+          <li><a href="#" class="hover:underline">Kebijakan Privasi</a></li>
+        </ul>
+      </div>
+  
+      <!-- Kontak -->
+      <div>
+        <h3 class="font-bold mb-2">Kontak</h3>
+        <p>biota@gmail.com</p>
+        <p>Surabaya, Indonesia</p>
+      </div>
+  
+      <!-- Newsletter -->
+      <div>
+        <h3 class="font-bold mb-2">Newsletter</h3>
+        <p class="mb-2">Dapatkan informasi terbaru tentang konservasi dan kegiatan Biota</p>
+        <form class="space-y-2">
+          <input type="email" placeholder="Alamat Email" class="w-full rounded px-4 py-2 text-gray-800" required>
+          <button type="submit" class="w-full bg-yellow-300 hover:bg-yellow-400 text-black font-semibold py-2 rounded flex justify-center items-center gap-2">
+            <span>📩</span> Langganan
+          </button>
+        </form>
+      </div>
+  
+      <!-- Copyright -->
+      <p class="text-center text-sm mt-8 text-white/70">&copy; 2025 Biota. Edukasi Konservasi Alam Indonesia.</p>
+    </div>
+  </footer>
+  
+  <!-- SwiperJS Init -->
+  <script>
+      var swiperSpesies = new Swiper(".spesiesSwiper", {
+        loop: true,
+        autoplay: { delay: 3000, disableOnInteraction: false },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+          bulletClass: 'swiper-pagination-bullet',
+          bulletActiveClass: 'swiper-pagination-bullet-active'
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        slidesPerView: 1,
+      });
+  
+    var swiperEvent = new Swiper(".eventSwiper", {
+      slidesPerView: "auto",
+      spaceBetween: 16,
+      grabCursor: true,
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
+      freeMode: true,
+    });
+  
+    // FAQ interaktif sederhana
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var answer = btn.parentElement.querySelector('.faq-answer');
+        var icon = btn.querySelector('svg');
+        var isOpen = !answer.classList.contains('hidden');
+        // Tutup semua jawaban lain dan reset panah
+        document.querySelectorAll('.faq-answer').forEach(function(a) {
+          a.classList.add('hidden');
+        });
+        document.querySelectorAll('.faq-question svg').forEach(function(svg) {
+          svg.style.transform = '';
+        });
+        if (!isOpen) {
+          answer.classList.remove('hidden');
+          icon.style.transform = 'rotate(180deg)';
+        } else {
+          answer.classList.add('hidden');
+          icon.style.transform = '';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

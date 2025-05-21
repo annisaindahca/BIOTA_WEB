@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biota - Edukasi Konservasi Indonesia</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</head>
+
+<body class="font-sans text-gray-800 bg-white">
+
+<!-- Navbar -->
+<nav class="flex items-center justify-between p-4 shadow-md bg-white fixed w-full z-50">
+  <div class="flex items-center space-x-2">
+    <img src="asset/logo.png" alt="Logo Biota" class="w-10 h-10">
+    <span class="font-bold text-xl text-green-700">Biota</span>
+  </div>
+  <ul class="hidden md:flex items-center space-x-6">
+    <li><a href="Prelogin_index.html" class="hover:text-green-600">Beranda</a></li>
+    <li><a href="Prelogin_TentangKami.html" class="hover:text-green-600">Tentang Kami</a></li>
+    <li><a href="Prelogin_DaftarSpesies.html" class="hover:text-green-600">Daftar Spesies</a></li>
+    <li><a href="Prelogin_JelajahiPeta.html" class="hover:text-green-600">Jelajahi Peta</a></li>
+  </ul>
+  <a href="login.html" class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-full">Masuk</a>
+</nav>
+
+<!-- Navbar -->
+<nav class="fixed top-0 w-full z-50 bg-white shadow">
+  <!-- isi navbar -->
+</nav>
+
+<!-- Konten setelah navbar -->
+<div class="pt-20"> <!-- Sesuaikan nilai pt dengan tinggi navbar -->
+  <!-- Banner Jelajahi Flora dan Fauna -->
+  <div class="mx-4 mt-6">
+    <div class="bg-gradient-to-r from-green-400 to-teal-400 text-white rounded-xl p-6 shadow-md text-center">
+      <h2 class="text-xl sm:text-2xl font-extrabold mb-2">Jelajahi Flora dan Fauna Indonesia!</h2>
+      <p class="text-sm sm:text-base font-medium">Kenali keanekaragaman hayati Indonesia, dari hutan hujan hingga dasar laut 🌳</p>
+    </div>
+  </div>
+
+  <div class="mx-4 mt-4">
+    <input type="text" placeholder="Cari spesies berdasarkan nama atau jenis..." class="w-full border border-gray-300 rounded-full px-4 py-2 mb-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-300">
+  
+    <div class="flex flex-wrap justify-center gap-2 mb-4">
+      <button class="px-4 py-1 rounded-full bg-lime-300 text-gray-800 font-semibold shadow-sm hover:bg-lime-400">Semua</button>
+      <button class="px-4 py-1 rounded-full bg-gray-200 text-gray-700 shadow-sm hover:bg-gray-300">Fauna</button>
+      <button class="px-4 py-1 rounded-full bg-gray-200 text-gray-700 shadow-sm hover:bg-gray-300">Flora</button>
+      <button class="px-4 py-1 rounded-full bg-gray-200 text-gray-700 shadow-sm hover:bg-gray-300">Rentan Kepunahan</button>
+      <button class="px-4 py-1 rounded-full bg-gray-200 text-gray-700 shadow-sm hover:bg-gray-300">Terancam Punah</button>
+      <button class="px-4 py-1 rounded-full bg-gray-200 text-gray-700 shadow-sm hover:bg-gray-300">Punah</button>
+    </div>
+  
+    <div class="flex justify-center">
+      <button class="bg-green-100 text-green-800 font-semibold px-4 py-2 rounded-full shadow-sm hover:bg-green-200">Filter Tambahan ➤</button>
+    </div>
+  </div>
+  
+  <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+    <!-- Card 1 - Kayu Ulin -->
+    <div class="border rounded-lg shadow-md overflow-hidden">
+      <img src="asset/KayuUlin.png" class="w-full h-48 object-cover">
+      <div class="p-4 relative">
+        <div class="absolute top-4 right-4 bg-yellow-400 text-white text-xs px-2 py-1 rounded-full">Rentan Kepunahan</div>
+        <h3 class="font-semibold text-lg">Kayu Ulin</h3>
+        <p class="text-sm italic text-gray-600">Eusideroxylon zwageri</p>
+        <span class="text-xs bg-green-100 text-green-800 mt-2 inline-block px-2 py-1 rounded-full">
+          🌿 Flora
+        </span>
+        <div class="mt-4 text-right">
+          <button class="bg-green-500 text-white px-4 py-1 rounded">Pelajari</button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Card 2 - Orangutan Tapanuli -->
+    <div class="border rounded-lg shadow-md overflow-hidden">
+      <img src="asset/orangutan.png" class="w-full h-48 object-cover">
+      <div class="p-4 relative">
+        <div class="absolute top-4 right-4 bg-red-500 text-white text-xs px-2 py-1 rounded-full">Punah</div>
+        <h3 class="font-semibold text-lg">Orangutan Tapanuli</h3>
+        <p class="text-sm italic text-gray-600">Pongo tapanuliensis</p>
+        <span class="text-xs bg-green-100 text-green-800 mt-2 inline-block px-2 py-1 rounded-full">
+          🐾 Fauna
+        </span>
+        <div class="mt-4 text-right">
+          <button class="bg-green-500 text-white px-4 py-1 rounded">Pelajari</button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Card 3 - Pohon Eboni -->
+    <div class="border rounded-lg shadow-md overflow-hidden">
+      <img src="asset/KayuEboni.png" class="w-full h-48 object-cover">
+      <div class="p-4 relative">
+        <div class="absolute top-4 right-4 bg-orange-400 text-white text-xs px-2 py-1 rounded-full">Terancam Punah</div>
+        <h3 class="font-semibold text-lg">Pohon Eboni</h3>
+        <p class="text-sm italic text-gray-600">Diospyros celebica</p>
+        <span class="text-xs bg-green-100 text-green-800 mt-2 inline-block px-2 py-1 rounded-full">
+          🌿 Flora
+        </span>
+        <div class="mt-4 text-right">
+          <button class="bg-green-500 text-white px-4 py-1 rounded">Pelajari</button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Card 4 - Penyu Belimbing -->
+    <div class="border rounded-lg shadow-md overflow-hidden">
+      <img src="asset/penyu.png" class="w-full h-48 object-cover">
+      <div class="p-4 relative">
+        <div class="absolute top-4 right-4 bg-orange-400 text-white text-xs px-2 py-1 rounded-full">Terancam Punah</div>
+        <h3 class="font-semibold text-lg">Penyu Belimbing</h3>
+        <p class="text-sm italic text-gray-600">Dermochelys coriacea</p>
+        <span class="text-xs bg-green-100 text-green-800 mt-2 inline-block px-2 py-1 rounded-full">
+          🐾 Fauna
+        </span>
+        <div class="mt-4 text-right">
+          <button class="bg-green-500 text-white px-4 py-1 rounded">Pelajari</button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Card 5 - Harimau Sumatera -->
+    <div class="border rounded-lg shadow-md overflow-hidden">
+      <img src="asset/harimau.png" class="w-full h-48 object-cover">
+      <div class="p-4 relative">
+        <div class="absolute top-4 right-4 bg-orange-400 text-white text-xs px-2 py-1 rounded-full">Terancam Punah</div>
+        <h3 class="font-semibold text-lg">Harimau Sumatera</h3>
+        <p class="text-sm italic text-gray-600">Panthera tigris sumatrae</p>
+        <span class="text-xs bg-green-100 text-green-800 mt-2 inline-block px-2 py-1 rounded-full">
+          🐾 Fauna
+        </span>
+        <div class="mt-4 text-right">
+          <button class="bg-green-500 text-white px-4 py-1 rounded">Pelajari</button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Card 6 - Anggrek Hitam -->
+    <div class="border rounded-lg shadow-md overflow-hidden">
+      <img src="asset/AnggrekHitam.png" class="w-full h-48 object-cover">
+      <div class="p-4 relative">
+        <div class="absolute top-4 right-4 bg-red-500 text-white text-xs px-2 py-1 rounded-full">Punah</div>
+        <h3 class="font-semibold text-lg">Anggrek Hitam</h3>
+        <p class="text-sm italic text-gray-600">Coelogyne pandurata</p>
+        <span class="text-xs bg-green-100 text-green-800 mt-2 inline-block px-2 py-1 rounded-full">
+          🌿 Flora
+        </span>
+        <div class="mt-4 text-right">
+          <button class="bg-green-500 text-white px-4 py-1 rounded">Pelajari</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Call to Action -->
+  <div class="bg-green-100 mt-8 p-4 text-center mx-4 rounded-lg">
+    <p class="font-semibold mb-2">Ingin simpan spesies favorit atau menandai penemuanmu? 🧭</p>
+    <p class="text-sm mb-4">Login atau daftar sekarang untuk mulai berkontribusi!</p>
+    <a href="register.html" class="bg-green-600 hover:bg-green-700 text-white py-4 px-8 rounded-full text-lg">Gabung Sekarang</a>
+  </div>
+
+<!-- Footer -->
+<footer class="bg-gradient-to-t from-green-900 to-green-700 text-white py-12 px-6">
+    <div class="max-w-4xl mx-auto space-y-8">
+      <!-- Logo dan Deskripsi -->
+      <div>
+        <div class="flex items-center mb-4">
+          <img src="asset/logo.png" alt="Logo Biota" class="w-10 h-10">
+          <span class="font-bold text-2xl ml-2">Biota</span>
+        </div>
+        <p>Bersama Lestarikan Keajaiban Alam Indonesia</p>
+        <div class="flex space-x-4 mt-4">
+          <a href="#"><img src="asset/logo ig.png" alt="Instagram" class="w-6 h-6"></a>
+          <a href="#"><img src="asset/logo tt.png" alt="TikTok" class="w-6 h-6"></a>
+          <a href="#"><img src="asset/logo yt.png" alt="YouTube" class="w-6 h-6"></a>
+        </div>
+      </div>
+  
+      <!-- Link Cepat -->
+      <div>
+        <h3 class="font-bold mb-2">Link Cepat</h3>
+        <ul class="space-y-1">
+          <li><a href="#" class="hover:underline">Tentang Kami</a></li>
+          <li><a href="FAQ.html" class="hover:underline">FAQ</a></li>
+          <li><a href="#" class="hover:underline">Kebijakan Privasi</a></li>
+        </ul>
+      </div>
+  
+      <!-- Kontak -->
+      <div>
+        <h3 class="font-bold mb-2">Kontak</h3>
+        <p>biota@gmail.com</p>
+        <p>Surabaya, Indonesia</p>
+      </div>
+  
+      <!-- Newsletter -->
+      <div>
+        <h3 class="font-bold mb-2">Newsletter</h3>
+        <p class="mb-2">Dapatkan informasi terbaru tentang konservasi dan kegiatan Biota</p>
+        <form class="space-y-2">
+          <input type="email" placeholder="Alamat Email" class="w-full rounded px-4 py-2 text-gray-800" required>
+          <button type="submit" class="w-full bg-yellow-300 hover:bg-yellow-400 text-black font-semibold py-2 rounded flex justify-center items-center gap-2">
+            <span>📩</span> Langganan
+          </button>
+        </form>
+      </div>
+  
+      <!-- Copyright -->
+      <p class="text-center text-sm mt-8 text-white/70">&copy; 2025 Biota. Edukasi Konservasi Alam Indonesia.</p>
+    </div>
+  </footer>
+  
+  <!-- SwiperJS Init -->
+  <script>
+      var swiperSpesies = new Swiper(".spesiesSwiper", {
+        loop: true,
+        autoplay: { delay: 3000, disableOnInteraction: false },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+          bulletClass: 'swiper-pagination-bullet',
+          bulletActiveClass: 'swiper-pagination-bullet-active'
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        slidesPerView: 1,
+      });
+  
+    var swiperEvent = new Swiper(".eventSwiper", {
+      slidesPerView: "auto",
+      spaceBetween: 16,
+      grabCursor: true,
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
+      freeMode: true,
+    });
+  
+    </script>
+  <!-- SwiperJS Init -->
+  <script>
+    var swiperSpesies = new Swiper(".spesiesSwiper", {
+      loop: true,
+      autoplay: { delay: 3000, disableOnInteraction: false },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        bulletClass: 'swiper-pagination-bullet',
+        bulletActiveClass: 'swiper-pagination-bullet-active'
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      slidesPerView: 1,
+    });
+  
+  var swiperEvent = new Swiper(".eventSwiper", {
+    slidesPerView: "auto",
+    spaceBetween: 16,
+    grabCursor: true,
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+    },
+    freeMode: true,
+  });
+  
+  </script>  
+</body>
+</html>

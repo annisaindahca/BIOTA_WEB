@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riwayat Laporan Saya - Biota</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="bg-[#F4FFF4]">
+<!-- Navbar -->
+<nav class="flex items-center justify-between p-4 shadow-md bg-white rounded-b-2xl mx-2 mt-2 relative z-50">
+    <div class="flex items-center space-x-2 flex-shrink-0">
+      <a href="Login_HomePage.html">
+        <img src="asset/logo.png" alt="Logo Biota" class="w-10 h-10">
+      </a>
+    </div>
+    <form class="flex-1 mx-4 max-w-lg">
+      <div class="relative">
+        <span class="absolute left-3 top-1/2 -translate-y-1/2 text-yellow-400">
+          <span class="material-icons">search</span>
+        </span>
+        <input type="text" placeholder="Cari flora, fauna, atau lokasi..." class="pl-10 pr-4 py-2 rounded-full border border-yellow-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm bg-yellow-50 w-full" />
+      </div>
+    </form>
+    <div class="flex items-center space-x-4">
+      <a href="Login_JelajahBiota.html" class="font-medium text-green-700 hover:text-green-900">Jelajahi</a>
+      <a href="Login_EdukasiBiota.html" class="font-medium text-green-700 hover:text-green-900">Edukasi</a>
+      <a href="Login_Event.html" class="font-medium text-green-700 hover:text-green-900">Event</a>
+      <a href="Login_LaporanSaya.html" class="font-bold text-green-700">Laporan Saya</a>
+      <span class="w-9 h-9 rounded-full bg-green-900 flex items-center justify-center text-white font-bold text-lg">D</span>
+      <span class="font-bold text-green-900">Didi</span>
+    </div>
+  </nav>
+
+    <!-- Header -->
+    <div class="bg-[#7FC996] py-6">
+        <h1 class="text-center text-white text-2xl font-semibold">Riwayat Laporan Saya</h1>
+    </div>
+
+    <!-- Main Content -->
+    <div class="max-w-5xl mx-auto py-8 px-4">
+        <!-- Search Bar -->
+        <div class="relative w-full">
+            <div class="relative w-full">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-grey-400">
+                  <span class="material-icons">search</span>
+                </span>
+                <input type="text" placeholder="Cari Laporan..." class="pl-10 pr-4 py-2 rounded-full border border-green-200 focus:outline-none focus:ring-2 focus:ring-green-400 text-sm bg-green-50 w-full" />
+              </div>
+
+        <!-- Filter Tabs -->
+        <div class="flex space-x-4 mb-8">
+            <button onclick="filterReports('semua')" class="filter-btn px-6 py-2 rounded-full bg-[#A7C957] text-white" data-status="semua">Semua</button>
+            <button onclick="filterReports('tervalidasi')" class="filter-btn px-6 py-2 rounded-full bg-gray-200" data-status="tervalidasi">Tervalidasi</button>
+            <button onclick="filterReports('pending')" class="filter-btn px-6 py-2 rounded-full bg-gray-200" data-status="pending">Pending</button>
+            <button onclick="filterReports('ditolak')" class="filter-btn px-6 py-2 rounded-full bg-gray-200" data-status="ditolak">Ditolak</button>
+        </div>
+
+<!-- Report Cards -->
+<div class="space-y-4" id="reportsContainer">
+    <!-- Orangutan Report -->
+    <div class="bg-white p-4 rounded-lg shadow-sm" data-status="tervalidasi">
+        <div class="flex gap-4">
+            <img src="orangutan.png" alt="Orangutan" class="w-32 h-32 object-cover rounded-lg">
+            <div class="flex-1">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="text-xl font-semibold">Orangutan</h3>
+                        <p class="text-gray-600">10 Mei 2025, 14:23</p>
+                        <p class="text-gray-600">Taman Nasional Ujung Kulon</p>
+                    </div>
+                    <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Tervalidasi</span>
+                </div>
+                <div class="flex gap-4 mt-4">
+                    <a href="LaporanSayaDets.html" class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">Lihat Detail</a>
+                    <button class="px-4 py-2 border border-red-500 text-red-500 rounded-lg hover:bg-red-50">Hapus Laporan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tanaman Kaktus Report -->
+    <div class="bg-white p-4 rounded-lg shadow-sm" data-status="ditolak">
+        <div class="flex gap-4">
+            <img src="kaktus.png" alt="Tanaman Kaktus" class="w-32 h-32 object-cover rounded-lg">
+            <div class="flex-1">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="text-xl font-semibold">Tanaman Kaktus</h3>
+                        <p class="text-gray-600">21 Mei 2025, 09:43</p>
+                        <p class="text-gray-600">Hutan Kota Surabaya</p>
+                    </div>
+                    <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">Ditolak</span>
+                </div>
+                <div class="flex gap-4 mt-4">
+                    <a href="LaporanSayaDets.html" class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">Lihat Detail</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Harimau Sumatera Report -->
+    <div class="bg-white p-4 rounded-lg shadow-sm" data-status="pending">
+        <div class="flex gap-4">
+            <img src="harimau.png" alt="Harimau Sumatera" class="w-32 h-32 object-cover rounded-lg">
+            <div class="flex-1">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="text-xl font-semibold">Harimau Sumatera</h3>
+                        <p class="text-gray-600">28 Mei 2025, 16:31</p>
+                        <p class="text-gray-600">Hutan Kalimantan, Palangkaraya</p>
+                    </div>
+                    <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm">Pending</span>
+                </div>
+                <div class="flex gap-4 mt-4">
+                    <a href="LaporanSayaDets.html" class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">Lihat Detail</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function filterReports(status) {
+        // Update button styles
+        const buttons = document.querySelectorAll('.filter-btn');
+        buttons.forEach(btn => {
+            if (btn.dataset.status === status) {
+                btn.classList.remove('bg-gray-200');
+                if (status === 'tervalidasi') {
+                    btn.classList.add('bg-yellow-100', 'text-yellow-800');
+                } else if (status === 'pending') {
+                    btn.classList.add('bg-[#FFA90A]', 'text-white');
+                } else if (status === 'ditolak') {
+                    btn.classList.add('bg-red-500', 'text-white');
+                } else {
+                    btn.classList.add('bg-[#A7C957]', 'text-white');
+                }
+            } else {
+                btn.className = 'filter-btn px-6 py-2 rounded-full bg-gray-200';
+            }
+        });
+
+        // Filter cards
+        const cards = document.querySelectorAll('#reportsContainer > div');
+        cards.forEach(card => {
+            if (status === 'semua' || card.dataset.status === status) {
+                card.style.display = '';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    // Search functionality
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        const cards = document.querySelectorAll('#reportsContainer > div');
+        
+        cards.forEach(card => {
+            const title = card.querySelector('h3').textContent.toLowerCase();
+            const location = card.querySelectorAll('p')[1].textContent.toLowerCase();
+            
+            if (title.includes(searchTerm) || location.includes(searchTerm)) {
+                card.style.display = '';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+
+    // Initialize with 'semua' filter
+    filterReports('semua');
+</script>
+</main>
+
+<!-- Footer -->
+<footer class="bg-gradient-to-t from-green-900 to-green-700 text-white py-12 px-6 mt-10">
+    <div class="max-w-4xl mx-auto space-y-8">
+      <!-- Logo dan Deskripsi -->
+      <div>
+        <div class="flex items-center mb-4">
+          <img src="logo.png" alt="Logo Biota" class="w-10 h-10">
+          <span class="font-bold text-2xl ml-2">Biota</span>
+        </div>
+        <p>Bersama Lestarikan Keajaiban Alam Indonesia</p>
+        <div class="flex space-x-4 mt-4">
+          <a href="#"><img src="asset/logo ig.png" alt="Instagram" class="w-6 h-6"></a>
+          <a href="#"><img src="asset/logo tt.png" alt="TikTok" class="w-6 h-6"></a>
+          <a href="#"><img src="asset/logo yt.png" alt="YouTube" class="w-6 h-6"></a>
+        </div>
+      </div>
+      <!-- Link Cepat -->
+      <div>
+        <h3 class="font-bold mb-2">Link Cepat</h3>
+        <ul class="space-y-1">
+          <li><a href="TentangKami.html" class="hover:underline">Tentang Kami</a></li>
+          <li><a href="FAQ.html" class="hover:underline">FAQ</a></li>
+          <li><a href="#" class="hover:underline">Kebijakan Privasi</a></li>
+        </ul>
+      </div>
+      <!-- Kontak -->
+      <div>
+        <h3 class="font-bold mb-2">Kontak</h3>
+        <p>biota@gmail.com</p>
+        <p>Surabaya, Indonesia</p>
+      </div>
+      <!-- Newsletter -->
+      <div>
+        <h3 class="font-bold mb-2">Newsletter</h3>
+        <p class="mb-2">Dapatkan informasi terbaru tentang konservasi dan kegiatan Biota</p>
+        <form class="space-y-2">
+          <input type="email" placeholder="Alamat Email" class="w-full rounded px-4 py-2 text-gray-800" required>
+          <button type="submit" class="w-full bg-yellow-300 hover:bg-yellow-400 text-black font-semibold py-2 rounded flex justify-center items-center gap-2">
+            <span>📩</span> Langganan
+          </button>
+        </form>
+      </div>
+      <!-- Copyright -->
+      <p class="text-center text-sm mt-8 text-white/70">&copy; 2025 Biota. Edukasi Konservasi Alam Indonesia.</p>
+    </div>
+  </footer>
+</body>
+</html>

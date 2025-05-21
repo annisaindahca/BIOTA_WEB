@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edukasi Biota</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    body { min-height: 100vh; }
+    .input-green {
+      background-color: #e6f4ea;
+      border: 1.5px solid #b5e0c7;
+      color: #14532d;
+    }
+    .input-green:focus {
+      outline: none;
+      border-color: #22c55e;
+      box-shadow: 0 0 0 2px #bbf7d0;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-green-200 via-lime-100 to-white min-h-screen font-sans text-gray-800">
+
+<!-- Navbar -->
+<nav class="flex items-center justify-between p-4 shadow-md bg-white rounded-b-2xl mx-2 mt-2 relative z-50">
+  <div class="flex items-center space-x-2 flex-shrink-0">
+    <a href="Login_HomePage.html">
+      <img src="asset/logo.png" alt="Logo Biota" class="w-10 h-10">
+    </a>
+  </div>
+  <form class="flex-1 mx-4 max-w-lg">
+    <div class="relative">
+      <span class="absolute left-3 top-1/2 -translate-y-1/2 text-yellow-400">
+        <span class="material-icons">search</span>
+      </span>
+      <input type="text" placeholder="Cari flora, fauna, atau lokasi..." class="pl-10 pr-4 py-2 rounded-full border border-yellow-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm bg-yellow-50 w-full" />
+    </div>
+  </form>
+  <div class="flex items-center space-x-4">
+    <a href="Login_JelajahBiota.html" class="font-medium text-green-700 hover:text-green-900">Jelajahi</a>
+    <a href="Login_EdukasiBiota.html" class="font-bold text-green-700">Edukasi</a>
+    <a href="Login_Event.html" class="font-medium text-green-700 hover:text-green-900">Event</a>
+    <a href="Login_LaporanSaya.html" class="font-medium text-green-700 hover:text-green-900">Laporan Saya</a>
+    <span class="w-9 h-9 rounded-full bg-green-900 flex items-center justify-center text-white font-bold text-lg">D</span>
+    <span class="font-bold text-green-900">Didi</span>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="mx-4 mt-6">
+  <div class="bg-green-200 rounded-xl p-6 shadow-md text-center">
+    <h2 class="text-xl sm:text-2xl font-extrabold mb-2 flex items-center justify-center gap-2 text-white drop-shadow" style="color:#fff;text-shadow:0 2px 8px #22c55e;">
+      Belajar Seru Bareng Biota!
+    </h2>
+    <p class="text-green-900 font-medium" style="color:#fff;text-shadow:0 2px 8px #22c55e;">
+      Yuk temukan fakta seru, kisah spesies langka, dan artikel penuh wawasan tentang keanekaragaman hayati Indonesia!
+    </p>
+  </div>
+</section>
+
+<!-- Filter dan Search -->
+<section class="max-w-2xl mx-auto mt-6 flex flex-col md:flex-row items-center gap-3">
+  <button class="flex items-center gap-1 bg-green-300 hover:bg-green-400 text-green-900 font-semibold px-4 py-1 rounded-full focus:outline-none mb-2 md:mb-0">
+    <span class="material-icons text-base">filter_list</span>
+    Filter
+  </button>
+  <div class="relative w-full">
+    <span class="absolute left-3 top-1/2 -translate-y-1/2 text-grey-400">
+      <span class="material-icons">search</span>
+    </span>
+    <input type="text" placeholder="Cari flora atau fauna..." class="pl-10 pr-4 py-2 rounded-full border border-green-200 focus:outline-none focus:ring-2 focus:ring-green-400 text-sm bg-green-50 w-full" />
+  </div>
+</section>
+
+<!-- Artikel Edukasi -->
+<section class="max-w-2xl mx-auto mt-6 mb-12">
+  <!-- Card 1 -->
+  <div class="bg-white rounded-xl shadow p-0 flex flex-col overflow-hidden mb-4">
+    <img src="asset/kebakaran.png" alt="Kebakaran Hutan" class="w-full h-40 object-cover">
+    <div class="p-4 flex flex-col flex-1">
+      <div class="flex items-center gap-2 text-xs text-gray-500 mb-2">
+        <span>1 Mei 2025</span>
+        <span>•</span>
+        <span><span class="material-icons text-base align-middle">schedule</span> 5 menit baca</span>
+      </div>
+      <h4 class="font-bold text-base mb-1">Kebakaran Hutan di Kalimantan Barat Mengancam Habitat Orangutan</h4>
+      <p class="text-xs text-gray-700 flex-1 mb-2">Kebakaran hutan yang terjadi di Kalimantan Barat sejak minggu lalu telah menghancurkan lebih dari 850 hektar hutan yang menjadi rumah bagi populasi orangutan terancam punah.</p>
+      <a href="#" class="text-green-700 font-semibold flex items-center gap-1 hover:underline mt-auto">Baca Selengkapnya <span class="material-icons text-base">arrow_forward</span></a>
+    </div>
+  </div>
+  <!-- Card 2 -->
+  <div class="bg-white rounded-xl shadow p-0 flex flex-col overflow-hidden mb-4">
+    <img src="asset/rajaampat.png" alt="Raja Ampat" class="w-full h-40 object-cover">
+    <div class="p-4 flex flex-col flex-1">
+      <div class="flex items-center gap-2 text-xs text-gray-500 mb-2">
+        <span>1 Mei 2025</span>
+        <span>•</span>
+        <span><span class="material-icons text-base align-middle">schedule</span> 5 menit baca</span>
+      </div>
+      <h4 class="font-bold text-base mb-1">Penemuan Spesies Ikan Baru di Perairan Raja Ampat</h4>
+      <p class="text-xs text-gray-700 flex-1 mb-2">Tim peneliti hasil ekspedisi Indonesia berhasil menemukan spesies ikan baru yang diyakini endemik di perairan indah dan beragam hayati Raja Ampat.</p>
+      <a href="#" class="text-green-700 font-semibold flex items-center gap-1 hover:underline mt-auto">Baca Selengkapnya <span class="material-icons text-base">arrow_forward</span></a>
+    </div>
+  </div>
+  <!-- Card 3 -->
+  <div class="bg-white rounded-xl shadow p-0 flex flex-col overflow-hidden mb-4">
+    <img src="asset/pantai.png" alt="Konservasi Laut" class="w-full h-40 object-cover">
+    <div class="p-4 flex flex-col flex-1">
+      <div class="flex items-center gap-2 text-xs text-gray-500 mb-2">
+        <span>1 Mei 2025</span>
+        <span>•</span>
+        <span><span class="material-icons text-base align-middle">schedule</span> 6 menit baca</span>
+      </div>
+      <h4 class="font-bold text-base mb-1">Konservasi Kelautan: Target 30% Kawasan Laut Dilindungi pada 2045</h4>
+      <p class="text-xs text-gray-700 flex-1 mb-2">Indonesia memiliki 4% kawasan laut yang dilindungi, mencakup sekitar 9% dari total wilayah maritim. Pemerintah menargetkan perluasan kawasan ini menjadi 30% pada 2045 untuk mendukung konservasi kelautan.</p>
+      <a href="DetailEdukasi.html" class="text-green-700 font-semibold flex items-center gap-1 hover:underline mt-auto">Baca Selengkapnya <span class="material-icons text-base">arrow_forward</span></a>
+    </div>
+  </div>
+  <!-- Pagination -->
+  <div class="flex flex-col md:flex-row md:justify-between md:items-center mt-6 gap-4">
+    <div class="flex flex-col">
+      <span class="font-bold text-green-800">Menampilkan 1 sampai 3 dari 150 berita</span>
+      <div class="mt-2 flex items-center border rounded-full overflow-hidden text-green-900 font-semibold text-sm w-max">
+        <span class="px-4 py-2 border-r bg-white">Tampilkan Perhalaman</span>
+        <input type="number" min="1" value="4" class="w-12 text-center py-2 bg-white outline-none border-0" style="appearance: textfield;">
+      </div>
+    </div>
+    <div class="flex gap-2">
+      <button class="border border-green-800 text-green-900 px-5 py-2 rounded-full text-sm font-semibold bg-white hover:bg-green-50 transition">Sebelumnya</button>
+      <button class="bg-green-300 text-green-900 px-5 py-2 rounded-full text-sm font-semibold hover:bg-green-400 transition">Berikutnya</button>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gradient-to-t from-green-900 to-green-700 text-white py-12 px-6 mt-10">
+  <div class="max-w-4xl mx-auto space-y-8">
+    <!-- Logo dan Deskripsi -->
+    <div>
+      <div class="flex items-center mb-4">
+        <img src="logo.png" alt="Logo Biota" class="w-10 h-10">
+        <span class="font-bold text-2xl ml-2">Biota</span>
+      </div>
+      <p>Bersama Lestarikan Keajaiban Alam Indonesia</p>
+      <div class="flex space-x-4 mt-4">
+        <a href="#"><img src="asset/logo ig.png" alt="Instagram" class="w-6 h-6"></a>
+        <a href="#"><img src="asset/logo tt.png" alt="TikTok" class="w-6 h-6"></a>
+        <a href="#"><img src="asset/logo yt.png" alt="YouTube" class="w-6 h-6"></a>
+      </div>
+    </div>
+    <!-- Link Cepat -->
+    <div>
+      <h3 class="font-bold mb-2">Link Cepat</h3>
+      <ul class="space-y-1">
+        <li><a href="TentangKami.html" class="hover:underline">Tentang Kami</a></li>
+        <li><a href="FAQ.html" class="hover:underline">FAQ</a></li>
+        <li><a href="#" class="hover:underline">Kebijakan Privasi</a></li>
+      </ul>
+    </div>
+    <!-- Kontak -->
+    <div>
+      <h3 class="font-bold mb-2">Kontak</h3>
+      <p>biota@gmail.com</p>
+      <p>Surabaya, Indonesia</p>
+    </div>
+    <!-- Newsletter -->
+    <div>
+      <h3 class="font-bold mb-2">Newsletter</h3>
+      <p class="mb-2">Dapatkan informasi terbaru tentang konservasi dan kegiatan Biota</p>
+      <form class="space-y-2">
+        <input type="email" placeholder="Alamat Email" class="w-full rounded px-4 py-2 text-gray-800" required>
+        <button type="submit" class="w-full bg-yellow-300 hover:bg-yellow-400 text-black font-semibold py-2 rounded flex justify-center items-center gap-2">
+          <span>📩</span> Langganan
+        </button>
+      </form>
+    </div>
+    <!-- Copyright -->
+    <p class="text-center text-sm mt-8 text-white/70">&copy; 2025 Biota. Edukasi Konservasi Alam Indonesia.</p>
+  </div>
+</footer>
+</body>
+</html>

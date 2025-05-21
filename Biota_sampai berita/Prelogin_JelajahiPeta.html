@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biota - Edukasi Konservasi Indonesia</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <style>
+    html, body {
+      height: 100%;
+      overflow-y: auto;
+    }
+    #map {
+      z-index: 1;
+    }
+  </style>
+  <!-- LeafletJS CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+
+<body class="font-sans text-gray-800 bg-gradient-to-b from-green-200 via-lime-100 to-white min-h-screen">
+
+<!-- Navbar -->
+<nav class="flex items-center justify-between p-4 shadow-md bg-white fixed w-full z-50">
+  <div class="flex items-center space-x-2">
+    <img src="asset/logo.png" alt="Logo Biota" class="w-10 h-10">
+    <span class="font-bold text-xl text-green-700">Biota</span>
+  </div>
+  <ul class="hidden md:flex items-center space-x-6">
+    <li><a href="Prelogin_index.html" class="hover:text-green-600">Beranda</a></li>
+    <li><a href="Prelogin_TentangKami.html" class="hover:text-green-600">Tentang Kami</a></li>
+    <li><a href="Prelogin_DaftarSpesies.html" class="hover:text-green-600">Daftar Spesies</a></li>
+    <li><a href="Prelogin_JelajahiPeta.html" class="hover:text-green-600">Jelajahi Peta</a></li>
+  </ul>
+  <a href="login.html" class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-full">Masuk</a>
+</nav>
+
+<main class="pt-28 pb-16 space-y-8">
+  <!-- Hero Section -->
+  <section class="rounded-xl p-6 bg-gradient-to-r from-lime-300 via-lime-400 to-green-400 text-green-900">
+    <h1 class="text-center font-extrabold text-2xl md:text-3xl">Jelajahi Keanekaragaman Hayati Lewat Peta Interaktif</h1>
+    <p class="mt-2 text-center text-green-800">Lihat di mana saja flora dan fauna Indonesia ditemukan berdasarkan laporan komunitas</p>
+  </section>
+
+  <!-- Filter Bar -->
+  <section class="px-4 md:px-8">
+    <div class="bg-white rounded-xl p-4 shadow space-y-4">
+      <div class="flex flex-wrap gap-2 justify-center">
+        <button class="bg-lime-600 text-white px-4 py-1 rounded-full font-semibold">Semua</button>
+        <button class="bg-gray-200 px-4 py-1 rounded-full">Fauna</button>
+        <button class="bg-gray-200 px-4 py-1 rounded-full">Flora</button>
+        <button class="bg-gray-100 px-4 py-1 rounded-full">Rentan Kepunahan</button>
+        <button class="bg-gray-100 px-4 py-1 rounded-full">Terancam Punah</button>
+        <button class="bg-gray-100 px-4 py-1 rounded-full">Punah</button>
+      </div>
+      <div class="relative">
+        <input type="text" placeholder="Cari nama spesies / lokasi..." class="w-full rounded-full border px-4 py-2 pl-10 focus:outline-none" />
+        <span class="absolute left-3 top-2.5 text-gray-400">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M12.9 14.32a8 8 0 111.414-1.414l4.387 4.386a1 1 0 01-1.414 1.415l-4.387-4.387zM8 14a6 6 0 100-12 6 6 0 000 12z" clip-rule="evenodd" />
+          </svg>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ajakan Gabung & Peta -->
+  <section class="px-4 md:px-8">
+    <div class="bg-gradient-to-b from-green-100 via-lime-100 to-white rounded-2xl p-4 shadow border border-lime-100">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-lg font-semibold text-green-900">
+          Ingin ikut menandai spesies baru atau lapor <span class="font-bold text-black">penemuan?</span>
+          Daftar untuk bergabung bersama komunitas BIOTA!
+        </p>
+        <a href="register.html" class="bg-green-700 hover:bg-green-800 text-white px-6 py-2 rounded-full font-bold shadow-lg block text-center md:inline-block">Gabung Sekarang</a>
+      </div>
+      <div class="relative mt-4 rounded-2xl overflow-hidden border border-green-200 shadow">
+        <div id="map" class="w-full h-[320px] md:h-[400px] rounded-2xl z-0"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Info Peta -->
+  <section class="px-4 md:px-8">
+    <div class="bg-yellow-100 p-4 rounded-2xl text-sm text-gray-700 border border-yellow-200">
+      <p>Data pada peta ini berasal dari laporan komunitas BIOTA dan tim konservasi. Semua penemuan ditinjau dulu oleh admin sebelum ditampilkan.</p>
+    </div>
+  </section>
+
+  <!-- Ajak Gabung Bawah -->
+  <section class="px-0 md:px-0">
+    <div class="bg-gradient-to-b from-green-200 via-lime-100 to-white p-6 rounded-2xl text-center border border-green-100 shadow">
+      <h2 class="font-bold text-lg text-green-900">Ingin bantu menandai spesies di sekitarmu?</h2>
+      <p class="mt-2 text-green-800">Gabung sekarang dan jadilah bagian dari pelestarian keanekaragaman hayati!</p>
+      <a href="register.html" class="mt-4 bg-green-700 text-white px-6 py-2 rounded-full font-semibold shadow-lg block text-center md:inline-block">Gabung Sekarang</a>
+    </div>
+  </section>
+</main>
+
+ <!-- Footer -->
+ <footer class="bg-gradient-to-t from-green-900 to-green-700 text-white py-12 px-6">
+  <div class="max-w-4xl mx-auto space-y-8">
+    <!-- Logo dan Deskripsi -->
+    <div>
+      <div class="flex items-center mb-4">
+        <img src="asset/logo.png" alt="Logo Biota" class="w-10 h-10">
+        <span class="font-bold text-2xl ml-2">Biota</span>
+      </div>
+      <p>Bersama Lestarikan Keajaiban Alam Indonesia</p>
+      <div class="flex space-x-4 mt-4">
+        <a href="#"><img src="asset/logo ig.png" alt="Instagram" class="w-6 h-6"></a>
+        <a href="#"><img src="asset/logo tt.png" alt="TikTok" class="w-6 h-6"></a>
+        <a href="#"><img src="asset/logo yt.png" alt="YouTube" class="w-6 h-6"></a>
+      </div>
+    </div>
+
+    <!-- Link Cepat -->
+    <div>
+      <h3 class="font-bold mb-2">Link Cepat</h3>
+      <ul class="space-y-1">
+        <li><a href="#" class="hover:underline">Tentang Kami</a></li>
+        <li><a href="FAQ.html" class="hover:underline">FAQ</a></li>
+        <li><a href="#" class="hover:underline">Kebijakan Privasi</a></li>
+      </ul>
+    </div>
+
+    <!-- Kontak -->
+    <div>
+      <h3 class="font-bold mb-2">Kontak</h3>
+      <p>biota@gmail.com</p>
+      <p>Surabaya, Indonesia</p>
+    </div>
+
+    <!-- Newsletter -->
+    <div>
+      <h3 class="font-bold mb-2">Newsletter</h3>
+      <p class="mb-2">Dapatkan informasi terbaru tentang konservasi dan kegiatan Biota</p>
+      <form class="space-y-2">
+        <input type="email" placeholder="Alamat Email" class="w-full rounded px-4 py-2 text-gray-800" required>
+        <button type="submit" class="w-full bg-yellow-300 hover:bg-yellow-400 text-black font-semibold py-2 rounded flex justify-center items-center gap-2">
+          <span>📩</span> Langganan
+        </button>
+      </form>
+    </div>
+
+    <!-- Copyright -->
+    <p class="text-center text-sm mt-8 text-white/70">&copy; 2025 Biota. Edukasi Konservasi Alam Indonesia.</p>
+  </div>
+</footer>
+
+<!-- SwiperJS Init -->
+<script>
+    var swiperSpesies = new Swiper(".spesiesSwiper", {
+      loop: true,
+      autoplay: { delay: 3000, disableOnInteraction: false },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        bulletClass: 'swiper-pagination-bullet',
+        bulletActiveClass: 'swiper-pagination-bullet-active'
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      slidesPerView: 1,
+    });
+
+  var swiperEvent = new Swiper(".eventSwiper", {
+    slidesPerView: "auto",
+    spaceBetween: 16,
+    grabCursor: true,
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+    },
+    freeMode: true,
+  });
+
+  // LeafletJS Map Init
+  // Tambahkan LeafletJS script
+</script>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+  // Inisialisasi peta
+  var map = L.map('map').setView([-2.5489, 118.0149], 5); // Koordinat Indonesia tengah
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> kontributor'
+  }).addTo(map);
+
+  // Data dummy marker
+  var dataSpesies = [
+    {
+      nama: "Orangutan Kalimantan",
+      lokasi: "Taman Nasional Tanjung Puting, Kalimantan Tengah",
+      status: "Terancam Punah",
+      lat: -2.7333,
+      lng: 111.6167
+    },
+    {
+      nama: "Harimau Sumatera",
+      lokasi: "Taman Nasional Kerinci Seblat, Sumatera",
+      status: "Kritis",
+      lat: -1.6977,
+      lng: 101.2521
+    },
+    {
+      nama: "Rafflesia Arnoldii",
+      lokasi: "Bengkulu, Sumatera",
+      status: "Rentan Kepunahan",
+      lat: -3.8004,
+      lng: 102.2655
+    },
+    {
+      nama: "Penyu Hijau",
+      lokasi: "Pulau Derawan, Kalimantan Timur",
+      status: "Rentan Kepunahan",
+      lat: 2.2833,
+      lng: 118.2333
+    }
+  ];
+
+  dataSpesies.forEach(function(spesies) {
+    var marker = L.marker([spesies.lat, spesies.lng]).addTo(map);
+    marker.bindPopup(
+      '<b>' + spesies.nama + '</b><br>' +
+      spesies.lokasi + '<br>' +
+      '<span class="font-semibold">Status: </span>' + spesies.status
+    );
+  });
+</script>
+  </script>
+  </body>
+</html>

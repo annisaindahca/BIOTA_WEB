@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biota - Edukasi Konservasi Indonesia</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</head>
+
+<body class="font-sans text-gray-800 bg-white">
+
+<!-- Navbar -->
+<nav class="flex items-center justify-between p-4 shadow-md bg-white fixed w-full z-50">
+  <div class="flex items-center space-x-2">
+    <img src="asset/logo.png" alt="Logo Biota" class="w-10 h-10">
+    <span class="font-bold text-xl text-green-700">Biota</span>
+  </div>
+  <ul class="hidden md:flex items-center space-x-6">
+    <li><a href="Prelogin_index.html" class="hover:text-green-600">Beranda</a></li>
+    <li><a href="Prelogin_TentangKami.html" class="hover:text-green-600">Tentang Kami</a></li>
+    <li><a href="Prelogin_DaftarSpesies.html" class="hover:text-green-600">Daftar Spesies</a></li>
+    <li><a href="Prelogin_JelajahiPeta.html" class="hover:text-green-600">Jelajahi Peta</a></li>
+  </ul>
+  <a href="login.html" class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-full">Masuk</a>
+</nav>
+
+<!-- Hero Section -->
+<section class="relative h-screen bg-cover bg-center flex items-center justify-center" style="background-image: url('hero%20index.png');">
+  <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+  <div class="relative z-10 text-center text-white px-4">
+    <h1 class="text-4xl md:text-6xl font-bold mb-6">Kenali, Tandai, dan Lindungi Flora & Fauna Indonesia!</h1>
+    <p class="text-lg mb-8">Bergabunglah dalam misi edukasi dan pelestarian keanekaragaman hayati Indonesia bersama Biota</p>
+    <div class="flex justify-center space-x-4">
+      <a href="JelajahiPeta.html" class="bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-full text-lg">Jelajahi Spesies</a>
+      <a href="register.html" class="bg-green-100 hover:bg-green-200 text-green-700 py-3 px-6 rounded-full text-lg">Gabung Sekarang</a>
+    </div>
+  </div>
+</section>
+
+<!-- Sekilas Tentang Biota -->
+<section class="relative h-[600px] bg-cover bg-center flex items-center" style="background-image: url('Sekilas%20Tentang%20Biota.png');">
+  <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+  <div class="relative z-10 text-white px-8 md:px-20">
+    <h2 class="text-3xl font-bold mb-6">Sekilas Tentang Biota</h2>
+    <p class="text-lg md:text-xl w-full md:w-1/2">Biota menggabungkan teknologi, edukasi, dan aksi nyata. Siapa pun bisa belajar tentang spesies langka dan ikut melestarikannya.</p>
+  </div>
+</section>
+
+<!-- Transition -->
+<div class="h-24 bg-gradient-to-b from-green-100 to-white"></div>
+
+<!-- Fitur Unggulan -->
+<section class="py-16 px-6 text-center">
+  <h2 class="text-3xl font-bold mb-10">Fitur Unggulan Biota</h2>
+  <div class="grid md:grid-cols-3 gap-8">
+    <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg">
+      <div class="text-4xl mb-4">📍</div>
+      <h3 class="font-bold text-xl mb-2">Peta Interaktif</h3>
+      <p>Jelajahi lokasi flora/fauna seluruh Indonesia.</p>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg">
+      <div class="text-4xl mb-4">🌼</div>
+      <h3 class="font-bold text-xl mb-2">Edukasi Spesies</h3>
+      <p>Belajar tentang flora dan fauna unik Indonesia.</p>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg">
+      <div class="text-4xl mb-4">📅</div>
+      <h3 class="font-bold text-xl mb-2">Event Konservasi</h3>
+      <p>Ikut aksi nyata konservasi di berbagai daerah.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Transition -->
+<div class="h-24 bg-gradient-to-b from-white to-green-50"></div>
+
+<section class="py-10 text-center">
+  <h2 class="text-3xl font-bold text-green-700 mb-4">Spesies Menarik Hari Ini</h2>
+  <p class="mb-10 text-gray-700">Kenali beragam flora dan fauna Indonesia yang unik dari Indonesia.</p>
+
+  <div class="relative max-w-lg mx-auto">
+    <div class="swiper spesiesSwiper rounded-2xl overflow-hidden shadow-lg">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide bg-white text-left flex flex-col">
+          <img src="asset/harimau.png" alt="Harimau Sumatera" class="w-full h-60 object-cover">
+          <div class="p-4 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold">Harimau Sumatera</h3>
+            <p class="italic text-gray-500 mb-2">Panthera tigris sumatrae</p>
+            <span class="inline-block bg-orange-400 text-white text-xs font-semibold rounded-full px-3 py-1 mb-4">
+              Terancam Punah
+            </span>
+            <a href="#" class="text-green-600 font-semibold text-sm mt-auto">Lihat Detail &gt;</a>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="swiper-slide bg-white text-left flex flex-col">
+          <img src="asset/orangutan.png" alt="Orang Utan Tapanuli" class="w-full h-60 object-cover">
+          <div class="p-4 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold">Orang Utan Tapanuli</h3>
+            <p class="italic text-gray-500 mb-2">Pongo Tapanuliensis</p>
+            <span class="inline-block bg-red-400 text-white text-xs font-semibold rounded-full px-3 py-1 mb-4">
+              Punah
+            </span>
+            <a href="#" class="text-green-600 font-semibold text-sm mt-auto">Lihat Detail &gt;</a>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="swiper-slide bg-white text-left flex flex-col">
+          <img src="asset/penyu.png" alt="Penyu" class="w-full h-60 object-cover">
+          <div class="p-4 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold">Penyu Belimbing</h3>
+            <p class="italic text-gray-500 mb-2">Dermochelys coriacea</p>
+            <span class="inline-block bg-yellow-400 text-white text-xs font-semibold rounded-full px-3 py-1 mb-4">
+              Rentan Kepunahan
+            </span>
+            <a href="#" class="text-green-600 font-semibold text-sm mt-auto">Lihat Detail &gt;</a>
+          </div>
+        </div>
+      </div>
+
+ <!-- Custom Navigation Buttons -->
+ <button id="custom-prev" class="bg-yellow-400 text-black rounded-full w-8 h-8 flex items-center justify-center shadow-md absolute top-1/2 -translate-y-1/2 left-0 z-10">
+  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+  </svg>
+</button>
+
+<button id="custom-next" class="bg-yellow-400 text-black rounded-full w-8 h-8 flex items-center justify-center shadow-md absolute top-1/2 -translate-y-1/2 right-0 z-10">
+  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+  </svg>
+</button>
+
+
+      
+      <!-- Pagination Bulat -->
+      <div class="swiper-pagination mt-2"></div>
+    </div>
+
+    <!-- CTA Bawah -->
+    <div class="mt-6">
+      <a href="#" class="font-bold" style="color: #4D5E05;">Lihat Semua Spesies &gt;</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- Yuk Ikut Konservasi -->
+<section class="py-16 bg-white text-center">
+  <h2 class="text-3xl font-bold mb-4 text-green-700">Yuk Ikut Konservasi!</h2>
+    <p class="mb-10 text-gray-700 max-w-xl mx-auto">
+      Bergabung dengan komunitas Biota dan jadilah bagian dari gerakan konservasi digital. Bersama-sama kita bisa melindungi keanekaragaman hayati Indonesia untuk generasi mendatang.
+    </p>
+  
+    <!-- Swiper Wrapper -->
+    <div class="swiper eventSwiper px-6">
+      <div class="swiper-wrapper">
+        <!-- Card Event 1 -->
+        <div class="swiper-slide w-[320px] md:w-[360px] rounded-2xl overflow-hidden relative shadow-md">
+          <img src="asset/tanam pohon.png" class="w-full h-64 object-cover" />
+          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+            <h3 class="text-white font-bold text-xl mb-1">Tanam Pohon Bersama</h3>
+            <div class="text-white text-sm flex items-center gap-2 mb-1">
+              📅 <span>20 April 2025</span>
+            </div>
+            <div class="text-white text-sm flex items-center gap-2">
+              📍 <span>Taman Nasional Gunung Gede Pangrango</span>
+            </div>
+          </div>
+        </div> 
+
+        <div class="swiper-slide w-[320px] md:w-[360px] rounded-2xl overflow-hidden relative shadow-md">
+          <img src="asset/event bersih pantai.png" class="w-full h-64 object-cover" />
+          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+            <h3 class="text-white font-bold text-xl mb-1">Event Bersih Pantai</h3>
+            <div class="text-white text-sm flex items-center gap-2 mb-1">
+              📅 <span>28 April 2025</span>
+            </div>
+            <div class="text-white text-sm flex items-center gap-2">
+              📍 <span>Pantai Kili-Kili Panggul, Jawa Timur</span>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Card Event 2 -->
+        <div class="swiper-slide w-[320px] md:w-[360px] rounded-2xl overflow-hidden relative shadow-md">
+          <img src="asset/edukasi konservasi.png" class="w-full h-64 object-cover" />
+          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+            <h3 class="text-white font-bold text-xl mb-1">Edukasi Konservasi</h3>
+            <div class="text-white text-sm flex items-center gap-2 mb-1">
+              📅 <span>15 Mei 2025</span>
+            </div>
+            <div class="text-white text-sm flex items-center gap-2">
+              📍 <span>Taman Nasional, Hutan Mangrove, Arboretum</span>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Card Event 3 -->
+ 
+        <div class="swiper-slide w-[320px] md:w-[360px] rounded-2xl overflow-hidden relative shadow-md">
+          <img src="asset/tanam pohon.png" class="w-full h-64 object-cover" />
+          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+            <h3 class="text-white font-bold text-xl mb-1">Tanam Pohon Bersama</h3>
+            <div class="text-white text-sm flex items-center gap-2 mb-1">
+              📅 <span>20 April 2025</span>
+            </div>
+            <div class="text-white text-sm flex items-center gap-2">
+              📍 <span>Taman Nasional Gunung Gede Pangrango</span>
+            </div>
+          </div>
+        </div> 
+    </div>
+  
+    <!-- Tombol Gabung -->
+    <div class="mt-10">
+      <a href="register.html" class="inline-flex items-center bg-gradient-to-r from-green-400 to-pink-500 text-white font-bold py-3 px-6 rounded-full text-lg transition hover:scale-105">
+        ❤️ Gabung Komunitas Biota
+      </a>
+    </div>
+  </section>
+  
+  
+
+<!-- Ajakan Bergabung -->
+<section class="relative h-[400px] flex items-center justify-center bg-cover bg-center" style="background-image: url('ajakan%20bergabung.png');">
+  <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+  <div class="relative text-center text-white px-8">
+    <h2 class="text-3xl font-bold mb-6">Yuk jadi bagian dari perubahan.</h2>
+    <p class="mb-8 max-w-2xl mx-auto">Biota butuh kamu untuk bantu mengenali dan melindungi kekayaan hayati negeri ini!</p>
+    <a href="register.html" class="bg-green-600 hover:bg-green-700 text-white py-4 px-8 rounded-full text-lg">Gabung Sekarang</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gradient-to-t from-green-900 to-green-700 text-white py-12 px-6">
+  <div class="max-w-4xl mx-auto space-y-8">
+    <!-- Logo dan Deskripsi -->
+    <div>
+      <div class="flex items-center mb-4">
+        <img src="asset/logo.png" alt="Logo Biota" class="w-10 h-10">
+        <span class="font-bold text-2xl ml-2">Biota</span>
+      </div>
+      <p>Bersama Lestarikan Keajaiban Alam Indonesia</p>
+      <div class="flex space-x-4 mt-4">
+        <a href="#"><img src="asset/logo ig.png" alt="Instagram" class="w-6 h-6"></a>
+        <a href="#"><img src="asset/logo tt.png" alt="TikTok" class="w-6 h-6"></a>
+        <a href="#"><img src="asset/logo yt.png" alt="YouTube" class="w-6 h-6"></a>
+      </div>
+    </div>
+
+    <!-- Link Cepat -->
+    <div>
+      <h3 class="font-bold mb-2">Link Cepat</h3>
+      <ul class="space-y-1">
+        <li><a href="#" class="hover:underline">Tentang Kami</a></li>
+        <li><a href="FAQ.html" class="hover:underline">FAQ</a></li>
+        <li><a href="#" class="hover:underline">Kebijakan Privasi</a></li>
+      </ul>
+    </div>
+
+    <!-- Kontak -->
+    <div>
+      <h3 class="font-bold mb-2">Kontak</h3>
+      <p>biota@gmail.com</p>
+      <p>Surabaya, Indonesia</p>
+    </div>
+
+    <!-- Newsletter -->
+    <div>
+      <h3 class="font-bold mb-2">Newsletter</h3>
+      <p class="mb-2">Dapatkan informasi terbaru tentang konservasi dan kegiatan Biota</p>
+      <form class="space-y-2">
+        <input type="email" placeholder="Alamat Email" class="w-full rounded px-4 py-2 text-gray-800" required>
+        <button type="submit" class="w-full bg-yellow-300 hover:bg-yellow-400 text-black font-semibold py-2 rounded flex justify-center items-center gap-2">
+          <span>📩</span> Langganan
+        </button>
+      </form>
+    </div>
+
+    <!-- Copyright -->
+    <p class="text-center text-sm mt-8 text-white/70">&copy; 2025 Biota. Edukasi Konservasi Alam Indonesia.</p>
+  </div>
+</footer>
+
+<!-- SwiperJS Init -->
+<script>
+    var swiperSpesies = new Swiper(".spesiesSwiper", {
+      loop: true,
+      autoplay: { delay: 3000, disableOnInteraction: false },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        bulletClass: 'swiper-pagination-bullet',
+        bulletActiveClass: 'swiper-pagination-bullet-active'
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      slidesPerView: 1,
+    });
+
+  var swiperEvent = new Swiper(".eventSwiper", {
+    slidesPerView: "auto",
+    spaceBetween: 16,
+    grabCursor: true,
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+    },
+    freeMode: true,
+  });
+
+  </script>
+<!-- SwiperJS Init -->
+<script>
+  var swiperSpesies = new Swiper(".spesiesSwiper", {
+    loop: true,
+    autoplay: { delay: 3000, disableOnInteraction: false },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+      bulletClass: 'swiper-pagination-bullet',
+      bulletActiveClass: 'swiper-pagination-bullet-active'
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    slidesPerView: 1,
+  });
+
+var swiperEvent = new Swiper(".eventSwiper", {
+  slidesPerView: "auto",
+  spaceBetween: 16,
+  grabCursor: true,
+  autoplay: {
+    delay: 4000,
+    disableOnInteraction: false,
+  },
+  freeMode: true,
+});
+
+</script>  
+
+</body>
+</html>

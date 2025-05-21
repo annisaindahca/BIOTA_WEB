@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jelajah Biota - Temukan Flora & Fauna Sekitarmu</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <!-- Tambahkan baris berikut agar icon material muncul -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    html, body { height: 100%; }
+    #map { z-index: 1; }
+  </style>
+</head>
+<body class="font-sans text-gray-800 bg-gradient-to-b from-green-200 via-lime-100 to-white min-h-screen">
+
+<!-- Navbar -->
+<nav class="flex items-center justify-between p-4 shadow-md bg-white rounded-b-2xl mx-2 mt-2 relative z-50">
+  <div class="flex items-center space-x-2 flex-shrink-0">
+    <a href="Login_HomePage.html">
+      <img src="asset/logo.png" alt="Logo Biota" class="w-10 h-10">
+    </a>
+  </div>
+  <form class="flex-1 mx-4 max-w-lg">
+    <div class="relative">
+      <span class="absolute left-3 top-1/2 -translate-y-1/2 text-yellow-400">
+        <span class="material-icons">search</span>
+      </span>
+      <input type="text" placeholder="Cari flora, fauna, atau lokasi..." class="pl-10 pr-4 py-2 rounded-full border border-yellow-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm bg-yellow-50 w-full" />
+    </div>
+  </form>
+  <div class="flex items-center space-x-4">
+    <a href="Login_JelajahBiota.html" class="font-bold text-green-700">Jelajahi</a>
+    <a href="Login_EdukasiBiota.html" class="font-medium text-green-700 hover:text-green-900">Edukasi</a>
+    <a href="Login_Event.html" class="font-medium text-green-700 hover:text-green-900">Event</a>
+    <a href="Login_LaporanSaya.html" class="font-medium text-green-700 hover:text-green-900">Laporan Saya</a>
+    <span class="w-9 h-9 rounded-full bg-green-900 flex items-center justify-center text-white font-bold text-lg">D</span>
+    <span class="font-bold text-green-900">Didi</span>
+  </div>
+</nav>
+
+
+<!-- Hero Section -->
+<section class="mx-4 mt-6">
+  <div class="bg-green-200 rounded-xl p-6 shadow-md text-center">
+    <h2 class="text-xl sm:text-2xl font-extrabold mb-2 flex items-center justify-center gap-2">
+      Temukan Flora & Fauna Sekitarmu
+      <span>🌏</span>
+    </h2>
+    <p class="text-green-900 font-medium">Gunakan peta interaktif untuk mengenali keanekaragaman hayati di sekitarmu!</p>
+  </div>
+</section>
+
+<!-- Tab Navigasi -->
+<section class="mx-4 mt-4">
+  <div class="flex justify-between bg-white rounded-xl shadow p-2">
+    <a href="Login_JelajahBiota.html" class="flex-1 flex flex-col items-center py-2 bg-lime-100 rounded-xl font-bold">
+      <span class="material-icons">map</span>
+      <span class="text-xs font-semibold">Peta GIS</span>
+    </a>
+    <a href="Login_GaleriBiota.html" class="flex-1 flex flex-col items-center py-2 hover:bg-lime-100 rounded-xl">
+      <span class="material-icons">photo_library</span>
+      <span class="text-xs font-semibold">Galeri Spesies</span>
+    </a>
+    <a href="Login_TambahLaporan.html" class="flex-1 flex flex-col items-center py-2 hover:bg-lime-100 rounded-xl">
+      <span class="material-icons">add_circle</span>
+      <span class="text-xs font-semibold">Tambahkan Laporan</span>
+    </a>
+  </div>
+</section>
+
+<!-- Peta Interaktif -->
+<section class="mx-4 mt-6">
+  <div class="bg-white rounded-xl shadow p-4">
+    <div class="flex items-center justify-between mb-2">
+      <h3 class="font-bold text-lg text-green-900">Peta Interaktif</h3>
+      <div class="flex gap-2">
+        <button class="bg-gray-200 px-3 py-1 rounded-full text-sm font-semibold flex items-center gap-1">
+          <span class="material-icons text-base">filter_list</span> Filter
+        </button>
+        <button class="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-semibold flex items-center gap-1">
+          <span class="material-icons text-base">my_location</span> Lokasi Saya
+        </button>
+      </div>
+    </div>
+    <div class="rounded-xl overflow-hidden border border-green-200 shadow">
+      <div id="map" class="w-full h-72 bg-gray-200 flex items-center justify-center">
+        <!-- Dummy Map, ganti dengan LeafletJS jika ingin interaktif -->
+        <span class="text-gray-400">[Peta Interaktif]</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Spesies Terdekat -->
+<section class="mx-4 mt-6">
+  <h3 class="font-bold text-lg mb-2">Spesies Terdekat</h3>
+  <div class="grid md:grid-cols-3 gap-4">
+    <!-- Flora Card -->
+    <div class="bg-white rounded-xl shadow p-4 flex flex-col">
+      <span class="bg-green-200 text-green-800 px-2 py-1 rounded-full text-xs font-bold w-max mb-2 flex items-center gap-1">
+        <span class="material-icons text-base align-middle">eco</span> Flora
+      </span>
+      <img src="asset/AnggrekHitam.png" alt="Anggrek Hitam" class="rounded-lg h-32 object-cover mb-2">
+      <h4 class="font-bold text-base">Anggrek Hitam</h4>
+      <p class="text-xs text-gray-600 mb-2">Coelogyne pandurata</p>
+      <p class="text-xs text-gray-700 flex-1">Anggrek Hitam (Coelogyne pandurata) adalah salah satu ...</p>
+      <a href="#" class="mt-2 bg-lime-300 hover:bg-lime-400 text-green-900 font-semibold py-1 px-4 rounded text-center text-sm">Pelajari</a>
+    </div>
+    <!-- Fauna Card 1 -->
+    <div class="bg-white rounded-xl shadow p-4 flex flex-col">
+      <span class="bg-orange-200 text-orange-800 px-2 py-1 rounded-full text-xs font-bold w-max mb-2 flex items-center gap-1">
+        <span class="material-icons text-base align-middle">pets</span> Fauna
+      </span>
+      <img src="asset/harimau.png" alt="Harimau Sumatera" class="rounded-lg h-32 object-cover mb-2">
+      <h4 class="font-bold text-base">Harimau Sumatera</h4>
+      <p class="text-xs text-gray-600 mb-2">Panthera tigris sumatrae</p>
+      <p class="text-xs text-gray-700 flex-1">Kucing besar dengan corak loreng gelap dan tubuh ramping...</p>
+      <a href="#" class="mt-2 bg-lime-300 hover:bg-lime-400 text-green-900 font-semibold py-1 px-4 rounded text-center text-sm">Pelajari</a>
+    </div>
+    <!-- Fauna Card 2 -->
+    <div class="bg-white rounded-xl shadow p-4 flex flex-col">
+      <span class="bg-orange-200 text-orange-800 px-2 py-1 rounded-full text-xs font-bold w-max mb-2 flex items-center gap-1">
+        <span class="material-icons text-base align-middle">pets</span> Fauna
+      </span>
+      <img src="asset/orangutan.png" alt="Orangutan Kalimantan" class="rounded-lg h-32 object-cover mb-2">
+      <h4 class="font-bold text-base">Orangutan Kalimantan</h4>
+      <p class="text-xs text-gray-600 mb-2">Pongo pygmaeus</p>
+      <p class="text-xs text-gray-700 flex-1">Primata berbulu kemerahan yang hidup arboreal dan sangat cerdas...</p>
+      <a href="#" class="mt-2 bg-lime-300 hover:bg-lime-400 text-green-900 font-semibold py-1 px-4 rounded text-center text-sm">Pelajari</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gradient-to-t from-green-900 to-green-700 text-white py-12 px-6 mt-10">
+  <div class="max-w-4xl mx-auto space-y-8">
+    <!-- Logo dan Deskripsi -->
+    <div>
+      <div class="flex items-center mb-4">
+        <img src="logo.png" alt="Logo Biota" class="w-10 h-10">
+        <span class="font-bold text-2xl ml-2">Biota</span>
+      </div>
+      <p>Bersama Lestarikan Keajaiban Alam Indonesia</p>
+      <div class="flex space-x-4 mt-4">
+        <a href="#"><img src="asset/logo ig.png" alt="Instagram" class="w-6 h-6"></a>
+        <a href="#"><img src="asset/logo tt.png" alt="TikTok" class="w-6 h-6"></a>
+        <a href="#"><img src="asset/logo yt.png" alt="YouTube" class="w-6 h-6"></a>
+      </div>
+    </div>
+    <!-- Link Cepat -->
+    <div>
+      <h3 class="font-bold mb-2">Link Cepat</h3>
+      <ul class="space-y-1">
+        <li><a href="TentangKami.html" class="hover:underline">Tentang Kami</a></li>
+        <li><a href="FAQ.html" class="hover:underline">FAQ</a></li>
+        <li><a href="#" class="hover:underline">Kebijakan Privasi</a></li>
+      </ul>
+    </div>
+    <!-- Kontak -->
+    <div>
+      <h3 class="font-bold mb-2">Kontak</h3>
+      <p>biota@gmail.com</p>
+      <p>Surabaya, Indonesia</p>
+    </div>
+    <!-- Newsletter -->
+    <div>
+      <h3 class="font-bold mb-2">Newsletter</h3>
+      <p class="mb-2">Dapatkan informasi terbaru tentang konservasi dan kegiatan Biota</p>
+      <form class="space-y-2">
+        <input type="email" placeholder="Alamat Email" class="w-full rounded px-4 py-2 text-gray-800" required>
+        <button type="submit" class="w-full bg-yellow-300 hover:bg-yellow-400 text-black font-semibold py-2 rounded flex justify-center items-center gap-2">
+          <span>📩</span> Langganan
+        </button>
+      </form>
+    </div>
+    <!-- Copyright -->
+    <p class="text-center text-sm mt-8 text-white/70">&copy; 2025 Biota. Edukasi Konservasi Alam Indonesia.</p>
+  </div>
+</footer>
+
+<!-- Dummy JS (Leaflet, Swiper, dsb, jika ingin interaktif) -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+  // Inisialisasi peta dengan batas Indonesia
+  var map = L.map('map', {
+    maxBounds: [
+      [-11.2, 94.9], // barat daya Indonesia
+      [6.2, 141.0]   // timur laut Indonesia
+    ],
+    maxBoundsViscosity: 1.0
+  }).setView([-2.5489, 118.0149], 5);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap'
+  }).addTo(map);
+
+  // Data dummy marker
+  var dataDummy = [
+    {
+      lat: -6.2,
+      lng: 106.8,
+      title: "Jakarta",
+      content: "<b>Jakarta</b><br>Penemuan: Anggrek Hitam<br>Tanggal: 2024-05-01"
+    },
+    {
+      lat: -7.25,
+      lng: 112.75,
+      title: "Surabaya",
+      content: "<b>Surabaya</b><br>Penemuan: Harimau Jawa<br>Tanggal: 2024-05-02"
+    },
+    {
+      lat: -0.7893,
+      lng: 113.9213,
+      title: "Kalimantan",
+      content: "<b>Kalimantan</b><br>Penemuan: Orangutan Kalimantan<br>Tanggal: 2024-05-03"
+    }
+  ];
+
+  // Tambahkan marker ke peta
+  dataDummy.forEach(function(item) {
+    L.marker([item.lat, item.lng])
+      .addTo(map)
+      .bindPopup(item.content);
+  });
+</script>
+</body>
+</html>
+<script>
+  // Highlight navbar sesuai halaman aktif
+  document.addEventListener('DOMContentLoaded', function() {
+    var path = window.location.pathname.split('/').pop();
+    document.querySelectorAll('.nav-link').forEach(function(link) {
+      if(link.getAttribute('href') === path) {
+        link.classList.add('font-bold', 'text-green-800');
+      } else {
+        link.classList.remove('font-bold', 'text-green-800');
+        link.classList.add('font-medium');
+      }
+    });
+  });
+</script>
