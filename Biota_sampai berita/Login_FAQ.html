@@ -8,20 +8,30 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body class="bg-gradient-to-b from-white to-green-50 min-h-screen flex flex-col">
-<!-- Navbar -->
-<nav class="flex items-center justify-between p-4 shadow-md bg-white fixed w-full z-50">
-  <div class="flex items-center space-x-2">
-    <img src="asset/logo.png" alt="Logo Biota" class="w-10 h-10">
-    <span class="font-bold text-xl text-green-700">Biota</span>
-  </div>
-  <ul class="hidden md:flex items-center space-x-6">
-    <li><a href="Prelogin_index.html" class="hover:text-green-600">Beranda</a></li>
-    <li><a href="Prelogin_TentangKami.html" class="hover:text-green-600">Tentang Kami</a></li>
-    <li><a href="Prelogin_DaftarSpesies.html" class="hover:text-green-600">Daftar Spesies</a></li>
-    <li><a href="Prelogin_JelajahiPeta.html" class="hover:text-green-600">Jelajahi Peta</a></li>
-  </ul>
-  <a href="login.html" class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-full">Masuk</a>
-</nav>
+  <!-- Navbar -->
+  <nav class="flex items-center justify-between p-4 shadow-md bg-white rounded-b-2xl mx-2 mt-2 relative z-50">
+    <div class="flex items-center space-x-2 flex-shrink-0">
+      <a href="Login_HomePage.html">
+        <img src="asset/logo.png" alt="Logo Biota" class="w-10 h-10">
+      </a>
+    </div>
+    <form class="flex-1 mx-4 max-w-lg">
+      <div class="relative">
+        <span class="absolute left-3 top-1/2 -translate-y-1/2 text-yellow-400">
+          <span class="material-icons">search</span>
+        </span>
+        <input type="text" placeholder="Cari flora, fauna, atau lokasi..." class="pl-10 pr-4 py-2 rounded-full border border-yellow-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm bg-yellow-50 w-full" />
+      </div>
+    </form>
+    <div class="flex items-center space-x-4">
+      <a href="Login_JelajahBiota.html" class="font-medium text-green-700 hover:text-green-900">Jelajahi</a>
+      <a href="Login_EdukasiBiota.html" class="font-medium text-green-700 hover:text-green-900">Edukasi</a>
+      <a href="Login_Event.html" class="font-medium text-green-700 hover:text-green-900">Event</a>
+      <a href="Login_LaporanSaya.html" class="font-medium text-green-700 hover:text-green-900">Laporan Saya</a>
+      <span class="w-9 h-9 rounded-full bg-green-900 flex items-center justify-center text-white font-bold text-lg">D</span>
+      <span class="font-bold text-green-900">Didi</span>
+    </div>
+  </nav>
   <div class="h-20"></div>
   <main class="flex-1 flex flex-col items-center px-2 pb-10">
     <div class="max-w-lg w-full mt-6">

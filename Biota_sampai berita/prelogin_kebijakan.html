@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kebijakan Privasi & Syarat Penggunaan - Biota</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-b from-green-50 to-green-100 min-h-screen">
+<!-- Navbar -->
+<nav class="flex items-center justify-between p-4 shadow-md bg-white fixed w-full z-50">
+    <div class="flex items-center space-x-2">
+      <img src="asset/logo.png" alt="Logo Biota" class="w-10 h-10">
+      <span class="font-bold text-xl text-green-700">Biota</span>
+    </div>
+    <ul class="hidden md:flex items-center space-x-6">
+      <li><a href="Prelogin_index.html" class="hover:text-green-600">Beranda</a></li>
+      <li><a href="Prelogin_TentangKami.html" class="hover:text-green-600">Tentang Kami</a></li>
+      <li><a href="Prelogin_DaftarSpesies.html" class="hover:text-green-600">Daftar Spesies</a></li>
+      <li><a href="Prelogin_JelajahiPeta.html" class="hover:text-green-600">Jelajahi Peta</a></li>
+    </ul>
+    <a href="login.html" class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-full">Masuk</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto py-12 px-6">
+    <div class="bg-white rounded-2xl shadow-lg p-8">
+      <h1 class="text-3xl font-bold text-gray-800 mb-2 flex items-center gap-2">
+        Kebijakan Privasi & Syarat Penggunaan
+        <span class="text-green-600">✏️</span>
+      </h1>
+      <p class="text-gray-600 mb-8">Kami ingin kamu merasa aman dan nyaman saat menjelajahi alam bersama BIOTA.</p>
+
+      <!-- Tab Navigation -->
+      <div class="flex justify-center gap-8 border-b mb-8">
+        <button id="privacyTab" class="text-green-600 font-semibold pb-4 border-b-2 border-green-600 px-4">Kebijakan Privasi</button>
+        <button id="termsTab" class="text-gray-400 font-semibold pb-4 hover:text-green-600 px-4">Syarat & Ketentuan</button>
+      </div>
+
+      <!-- Privacy Policy Content -->
+      <div id="privacyContent" class="space-y-8 bg-white p-6 rounded-lg shadow-md">
+        <div class="space-y-4">
+          <h2 class="text-xl font-semibold text-gray-800 flex items-center gap-2">
+            <span class="text-green-600">✓</span>
+            Informasi yang Kami Kumpulkan
+          </h2>
+          <ul class="space-y-2 text-gray-600 ml-8 list-disc">
+            <li>Kami mengumpulkan informasi dasar pengguna untuk meningkatkan pengalaman</li>
+            <li>Informasi dasar seperti nama dan alamat email saat registrasi</li>
+            <li>Data aktivitas pengguna untuk meningkatkan layanan (dengan izin Anda)</li>
+            <li>Foto dan informasi spesies yang Anda unggah ke platform</li>
+            <li>Informasi pengguna seperti aktivitas jejak dan kontribusi</li>
+          </ul>
+        </div>
+
+        <div class="space-y-4">
+          <h2 class="text-xl font-semibold text-gray-800 flex items-center gap-2">
+            <span class="text-green-600">🔒</span>
+            Bagaimana Kami Melindungi Informasi
+          </h2>
+          <ul class="space-y-2 text-gray-600 ml-8 list-disc">
+            <li>Kami menggunakan enkripsi untuk:</li>
+            <li>Melindungi semua penyimpanan dan validasi data</li>
+            <li>Mengamankan rute akses platform Biota</li>
+            <li>Memastikan keamanan data pengguna dan koneksi</li>
+            <li>Memfasilitasi komunitas pengguna yang peduli terhadap privasi</li>
+          </ul>
+        </div>
+
+        <div class="space-y-4">
+          <h2 class="text-xl font-semibold text-gray-800 flex items-center gap-2">
+            <span class="text-green-600">🛡️</span>
+            Keamanan Data Pengguna
+          </h2>
+          <ul class="space-y-2 text-gray-600 ml-8 list-disc">
+            <li>Keamanan informasi pengguna adalah prioritas kami</li>
+            <li>Kami bekerja sama dengan ahli keamanan sesuai standar industri</li>
+            <li>Kami secara rutin mengaudit praktik keamanan kami</li>
+            <li>Data pengguna disimpan dengan aman pada infrastruktur yang terpercaya</li>
+            <li>Kami selalu siap untuk mendengarkan masukan keamanan yang perlu diperbaiki</li>
+          </ul>
+        </div>
+
+        <div class="space-y-4">
+          <h2 class="text-xl font-semibold text-gray-800 flex items-center gap-2">
+            <span class="text-green-600">🤝</span>
+            Kami Tidak Berbagi Informasi Tanpa Izin
+          </h2>
+          <ul class="space-y-2 text-gray-600 ml-8 list-disc">
+            <li>Komitmen kami untuk privasi pengguna:</li>
+            <li>Data pribadi tidak akan dibagikan kepada pihak ketiga tanpa persetujuan</li>
+            <li>Pengguna memiliki kontrol penuh atas data mereka</li>
+            <li>Data agregat tidak mengidentifikasi individu dapat digunakan untuk tujuan penelitian konservasi</li>
+            <li>Kami tidak menjual data pengguna dalam bentuk apapun</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Terms and Conditions Content -->
+      <div id="termsContent" class="space-y-8 hidden bg-white p-6 rounded-lg shadow-md">
+        <div class="space-y-4">
+          <h2 class="text-xl font-semibold text-gray-800 flex items-center gap-2">
+            <span class="text-green-600">✓</span>
+            Syarat & Ketentuan Penggunaan Biota
+          </h2>
+          <ul class="space-y-2 text-gray-600 ml-8 list-disc">
+            <li>Sebagai pengguna dan menggunakan platform Biota, kamu menyetujui untuk mematuhi ketentuan ini</li>
+            <li>Kamu harus berusia minimal 13 tahun</li>
+            <li>Kamu bertanggung jawab atas akun dan aktivitasmu</li>
+          </ul>
+        </div>
+
+        <div class="space-y-4">
+          <h2 class="text-xl font-semibold text-gray-800 flex items-center gap-2">
+            <span class="text-green-600">🌐</span>
+            Penggunaan Platform
+          </h2>
+          <ul class="space-y-2 text-gray-600 ml-8 list-disc">
+            <li>Menggunakan platform sesuai dengan tujuan yang ditentukan</li>
+            <li>Dilarang melakukan tindakan yang dapat membahayakan sistem</li>
+            <li>Menjaga keamanan data dan kredensial login</li>
+          </ul>
+        </div>
+
+        <div class="space-y-4">
+          <h2 class="text-xl font-semibold text-gray-800 flex items-center gap-2">
+            <span class="text-green-600">📝</span>
+            Kontribusi Data Flora & Fauna
+          </h2>
+          <ul class="space-y-2 text-gray-600 ml-8 list-disc">
+            <li>Setiap pengguna boleh mengirimkan data flora/fauna</li>
+            <li>Semua data harus akurat dan dapat diverifikasi</li>
+            <li>Data yang tidak sesuai akan dihapus tanpa pemberitahuan</li>
+          </ul>
+        </div>
+
+        <div class="space-y-4">
+          <h2 class="text-xl font-semibold text-gray-800 flex items-center gap-2">
+            <span class="text-green-600">⚖️</span>
+            Kepemilikan & Hak Konten
+          </h2>
+          <ul class="space-y-2 text-gray-600 ml-8 list-disc">
+            <li>Konten yang diunggah tetap menjadi milik pengirim</li>
+            <li>Biota memiliki hak untuk menggunakan, menampilkan, dan menganalisis data</li>
+            <li>Pengguna harus memiliki hak atas konten yang diunggah</li>
+          </ul>
+        </div>
+
+        <div class="space-y-4">
+          <h2 class="text-xl font-semibold text-gray-800 flex items-center gap-2">
+            <span class="text-green-600">🚫</span>
+            Penggunaan tidak diperbolehkan
+          </h2>
+          <ul class="space-y-2 text-gray-600 ml-8 list-disc">
+            <li>Dilarang untuk mengunggah konten yang mengandung unsur SARA</li>
+            <li>Biota bebas untuk menghapus konten yang melanggar ketentuan</li>
+            <li>Dilarang melakukan spam atau aktivitas yang mengganggu</li>
+          </ul>
+        </div>
+
+        <div class="space-y-4">
+          <h2 class="text-xl font-semibold text-gray-800 flex items-center gap-2">
+            <span class="text-green-600">🔒</span>
+            Privasi & Keamanan
+          </h2>
+          <ul class="space-y-2 text-gray-600 ml-8 list-disc">
+            <li>Data pengguna dilindungi dengan sistem keamanan terkini</li>
+            <li>Biota tidak akan membagikan data sensitif tanpa izin</li>
+            <li>Pengguna wajib menjaga kerahasiaan akun mereka</li>
+          </ul>
+        </div>
+
+        <div class="space-y-4">
+          <h2 class="text-xl font-semibold text-gray-800 flex items-center gap-2">
+            <span class="text-green-600">❌</span>
+            Penghentian atau Penghapusan Akun
+          </h2>
+          <ul class="space-y-2 text-gray-600 ml-8 list-disc">
+            <li>Biota dapat menghentikan akun yang melanggar ketentuan</li>
+            <li>Biota berhak membekukan akun & konten yang melanggar</li>
+            <li>Pengguna dapat menghapus akun mereka kapan saja</li>
+          </ul>
+        </div>
+
+        <div class="space-y-4">
+          <h2 class="text-xl font-semibold text-gray-800 flex items-center gap-2">
+            <span class="text-green-600">📋</span>
+            Pembaruan Ketentuan
+          </h2>
+          <ul class="space-y-2 text-gray-600 ml-8 list-disc">
+            <li>Biota dapat memperbarui syarat & ketentuan ini sewaktu-waktu</li>
+            <li>Perubahan akan diinformasikan melalui email atau notifikasi</li>
+            <li>Penggunaan berkelanjutan berarti menyetujui perubahan</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Call to Action -->
+      <div class="mt-12 bg-green-50 rounded-2xl p-8 text-center">
+        <h2 class="text-2xl font-bold text-green-800 mb-4">Yuk, Jaga Bersama!</h2>
+        <p class="text-green-700">Dengan menggunakan BIOTA, kamu ikut menjaga informasi dan lingkungan tetap aman. Yuk gunakan dengan bijak dan jadilah bagian dari komunitas yang peduli dengann kelestarian alam Indonesia!</p>
+      </div>
+    </div>
+  </main>
+
+
+<!-- Footer -->
+<footer class="bg-gradient-to-t from-green-900 to-green-700 text-white py-12 px-6">
+    <div class="max-w-4xl mx-auto space-y-8">
+      <!-- Logo dan Deskripsi -->
+      <div>
+        <div class="flex items-center mb-4">
+          <img src="asset/logo.png" alt="Logo Biota" class="w-10 h-10">
+          <span class="font-bold text-2xl ml-2">Biota</span>
+        </div>
+        <p>Bersama Lestarikan Keajaiban Alam Indonesia</p>
+        <div class="flex space-x-4 mt-4">
+          <a href="#"><img src="asset/logo ig.png" alt="Instagram" class="w-6 h-6"></a>
+          <a href="#"><img src="asset/logo tt.png" alt="TikTok" class="w-6 h-6"></a>
+          <a href="#"><img src="asset/logo yt.png" alt="YouTube" class="w-6 h-6"></a>
+        </div>
+      </div>
+  
+      <!-- Link Cepat -->
+      <div>
+        <h3 class="font-bold mb-2">Link Cepat</h3>
+        <ul class="space-y-1">
+          <li><a href="Prelogin_TentangKami.html" class="hover:underline">Tentang Kami</a></li>
+          <li><a href="FAQ.html" class="hover:underline">FAQ</a></li>
+          <li><a href="prelogin_kebijakan.html" class="hover:underline">Kebijakan Privasi</a></li>
+        </ul>
+      </div>
+  
+      <!-- Kontak -->
+      <div>
+        <h3 class="font-bold mb-2">Kontak</h3>
+        <p>biota@gmail.com</p>
+        <p>Surabaya, Indonesia</p>
+      </div>
+  
+      <!-- Newsletter -->
+      <div>
+        <h3 class="font-bold mb-2">Newsletter</h3>
+        <p class="mb-2">Dapatkan informasi terbaru tentang konservasi dan kegiatan Biota</p>
+        <form class="space-y-2">
+          <input type="email" placeholder="Alamat Email" class="w-full rounded px-4 py-2 text-gray-800" required>
+          <button type="submit" class="w-full bg-yellow-300 hover:bg-yellow-400 text-black font-semibold py-2 rounded flex justify-center items-center gap-2">
+            <span>📩</span> Langganan
+          </button>
+        </form>
+      </div>
+  
+      <!-- Copyright -->
+      <p class="text-center text-sm mt-8 text-white/70">&copy; 2025 Biota. Edukasi Konservasi Alam Indonesia.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Tab switching functionality
+    const privacyTab = document.getElementById('privacyTab');
+    const termsTab = document.getElementById('termsTab');
+    const privacyContent = document.getElementById('privacyContent');
+    const termsContent = document.getElementById('termsContent');
+
+    termsTab.addEventListener('click', () => {
+      termsTab.classList.add('text-green-600', 'border-b-2', 'border-green-600');
+      termsTab.classList.remove('text-gray-400');
+      privacyTab.classList.add('text-gray-400');
+      privacyTab.classList.remove('text-green-600', 'border-b-2', 'border-green-600');
+      
+      privacyContent.classList.add('hidden');
+      termsContent.classList.remove('hidden');
+    });
+
+    privacyTab.addEventListener('click', () => {
+      privacyTab.classList.add('text-green-600', 'border-b-2', 'border-green-600');
+      privacyTab.classList.remove('text-gray-400');
+      termsTab.classList.add('text-gray-400');
+      termsTab.classList.remove('text-green-600', 'border-b-2', 'border-green-600');
+      
+      termsContent.classList.add('hidden');
+      privacyContent.classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>

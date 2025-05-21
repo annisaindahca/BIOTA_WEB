@@ -7,6 +7,37 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <style>
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+    }
+
+    .modal-content {
+      position: relative;
+      background-color: white;
+      margin: 15% auto;
+      padding: 20px;
+      width: 90%;
+      max-width: 500px;
+      border-radius: 1rem;
+      text-align: center;
+    }
+
+    .close-modal {
+      position: absolute;
+      right: 20px;
+      top: 10px;
+      font-size: 28px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 
 <body class="font-sans text-gray-800 bg-white">
@@ -45,25 +76,17 @@
     <input type="text" placeholder="Cari spesies berdasarkan nama atau jenis..." class="w-full border border-gray-300 rounded-full px-4 py-2 mb-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-300">
   
     <div class="flex flex-wrap justify-center gap-2 mb-4">
-      <button class="px-4 py-1 rounded-full bg-lime-300 text-gray-800 font-semibold shadow-sm hover:bg-lime-400">Semua</button>
-      <button class="px-4 py-1 rounded-full bg-gray-200 text-gray-700 shadow-sm hover:bg-gray-300">Fauna</button>
-      <button class="px-4 py-1 rounded-full bg-gray-200 text-gray-700 shadow-sm hover:bg-gray-300">Flora</button>
-      <button class="px-4 py-1 rounded-full bg-gray-200 text-gray-700 shadow-sm hover:bg-gray-300">Rentan Kepunahan</button>
-      <button class="px-4 py-1 rounded-full bg-gray-200 text-gray-700 shadow-sm hover:bg-gray-300">Terancam Punah</button>
-      <button class="px-4 py-1 rounded-full bg-gray-200 text-gray-700 shadow-sm hover:bg-gray-300">Punah</button>
+      <button class="filter-btn px-6 py-2 rounded-full bg-[#9AB669] text-white font-medium shadow-sm hover:bg-[#8AA559]" data-filter="all">Semua</button>
+      <button class="filter-btn px-6 py-2 rounded-full bg-[#D9D9D9] text-gray-700 font-medium shadow-sm hover:bg-gray-300" data-filter="fauna">🐾 Fauna</button>
+      <button class="filter-btn px-6 py-2 rounded-full bg-[#D9D9D9] text-gray-700 font-medium shadow-sm hover:bg-gray-300" data-filter="flora">🌿 Flora</button>
     </div>
   
-    <div class="flex justify-center">
-      <button class="bg-green-100 text-green-800 font-semibold px-4 py-2 rounded-full shadow-sm hover:bg-green-200">Filter Tambahan ➤</button>
-    </div>
-  </div>
-  
-  <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+  <!-- Tambahkan class untuk card -->
+  <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6" id="species-grid">
     <!-- Card 1 - Kayu Ulin -->
-    <div class="border rounded-lg shadow-md overflow-hidden">
+    <div class="species-card border rounded-lg shadow-md overflow-hidden" data-species="flora">
       <img src="asset/KayuUlin.png" class="w-full h-48 object-cover">
       <div class="p-4 relative">
-        <div class="absolute top-4 right-4 bg-yellow-400 text-white text-xs px-2 py-1 rounded-full">Rentan Kepunahan</div>
         <h3 class="font-semibold text-lg">Kayu Ulin</h3>
         <p class="text-sm italic text-gray-600">Eusideroxylon zwageri</p>
         <span class="text-xs bg-green-100 text-green-800 mt-2 inline-block px-2 py-1 rounded-full">
@@ -76,10 +99,9 @@
     </div>
   
     <!-- Card 2 - Orangutan Tapanuli -->
-    <div class="border rounded-lg shadow-md overflow-hidden">
+    <div class="species-card border rounded-lg shadow-md overflow-hidden" data-species="fauna">
       <img src="asset/orangutan.png" class="w-full h-48 object-cover">
       <div class="p-4 relative">
-        <div class="absolute top-4 right-4 bg-red-500 text-white text-xs px-2 py-1 rounded-full">Punah</div>
         <h3 class="font-semibold text-lg">Orangutan Tapanuli</h3>
         <p class="text-sm italic text-gray-600">Pongo tapanuliensis</p>
         <span class="text-xs bg-green-100 text-green-800 mt-2 inline-block px-2 py-1 rounded-full">
@@ -92,10 +114,9 @@
     </div>
   
     <!-- Card 3 - Pohon Eboni -->
-    <div class="border rounded-lg shadow-md overflow-hidden">
+    <div class="species-card border rounded-lg shadow-md overflow-hidden" data-species="flora">
       <img src="asset/KayuEboni.png" class="w-full h-48 object-cover">
       <div class="p-4 relative">
-        <div class="absolute top-4 right-4 bg-orange-400 text-white text-xs px-2 py-1 rounded-full">Terancam Punah</div>
         <h3 class="font-semibold text-lg">Pohon Eboni</h3>
         <p class="text-sm italic text-gray-600">Diospyros celebica</p>
         <span class="text-xs bg-green-100 text-green-800 mt-2 inline-block px-2 py-1 rounded-full">
@@ -108,10 +129,9 @@
     </div>
   
     <!-- Card 4 - Penyu Belimbing -->
-    <div class="border rounded-lg shadow-md overflow-hidden">
+    <div class="species-card border rounded-lg shadow-md overflow-hidden" data-species="fauna">
       <img src="asset/penyu.png" class="w-full h-48 object-cover">
       <div class="p-4 relative">
-        <div class="absolute top-4 right-4 bg-orange-400 text-white text-xs px-2 py-1 rounded-full">Terancam Punah</div>
         <h3 class="font-semibold text-lg">Penyu Belimbing</h3>
         <p class="text-sm italic text-gray-600">Dermochelys coriacea</p>
         <span class="text-xs bg-green-100 text-green-800 mt-2 inline-block px-2 py-1 rounded-full">
@@ -124,10 +144,9 @@
     </div>
   
     <!-- Card 5 - Harimau Sumatera -->
-    <div class="border rounded-lg shadow-md overflow-hidden">
+    <div class="species-card border rounded-lg shadow-md overflow-hidden" data-species="fauna">
       <img src="asset/harimau.png" class="w-full h-48 object-cover">
       <div class="p-4 relative">
-        <div class="absolute top-4 right-4 bg-orange-400 text-white text-xs px-2 py-1 rounded-full">Terancam Punah</div>
         <h3 class="font-semibold text-lg">Harimau Sumatera</h3>
         <p class="text-sm italic text-gray-600">Panthera tigris sumatrae</p>
         <span class="text-xs bg-green-100 text-green-800 mt-2 inline-block px-2 py-1 rounded-full">
@@ -140,10 +159,9 @@
     </div>
   
     <!-- Card 6 - Anggrek Hitam -->
-    <div class="border rounded-lg shadow-md overflow-hidden">
+    <div class="species-card border rounded-lg shadow-md overflow-hidden" data-species="flora">
       <img src="asset/AnggrekHitam.png" class="w-full h-48 object-cover">
       <div class="p-4 relative">
-        <div class="absolute top-4 right-4 bg-red-500 text-white text-xs px-2 py-1 rounded-full">Punah</div>
         <h3 class="font-semibold text-lg">Anggrek Hitam</h3>
         <p class="text-sm italic text-gray-600">Coelogyne pandurata</p>
         <span class="text-xs bg-green-100 text-green-800 mt-2 inline-block px-2 py-1 rounded-full">
@@ -184,9 +202,9 @@
       <div>
         <h3 class="font-bold mb-2">Link Cepat</h3>
         <ul class="space-y-1">
-          <li><a href="#" class="hover:underline">Tentang Kami</a></li>
+          <li><a href="Prelogin_TentangKami.html" class="hover:underline">Tentang Kami</a></li>
           <li><a href="FAQ.html" class="hover:underline">FAQ</a></li>
-          <li><a href="#" class="hover:underline">Kebijakan Privasi</a></li>
+          <li><a href="prelogin_kebijakan.html" class="hover:underline">Kebijakan Privasi</a></li>
         </ul>
       </div>
   
@@ -276,3 +294,93 @@
   </script>  
 </body>
 </html>
+
+<!-- Modal Login Notification -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <div class="p-6">
+      <h3 class="text-xl font-bold mb-4">Masuk atau Daftar</h3>
+      <p class="text-gray-600 mb-6">Untuk melihat detail spesies ini, Anda perlu masuk atau mendaftar terlebih dahulu.</p>
+      <div class="flex justify-center gap-4">
+        <a href="login.html" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full">Masuk</a>
+        <a href="register.html" class="bg-yellow-400 hover:bg-yellow-500 text-gray-800 px-6 py-2 rounded-full">Daftar</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Fungsi untuk menampilkan modal
+  function showLoginModal() {
+    document.getElementById('loginModal').style.display = 'block';
+  }
+
+  // Fungsi untuk menutup modal
+  function closeLoginModal() {
+    document.getElementById('loginModal').style.display = 'none';
+  }
+
+  // Tambahkan event listener untuk semua tombol Pelajari
+  document.querySelectorAll('button').forEach(button => {
+    if (button.textContent.trim() === 'Pelajari') {
+      button.addEventListener('click', showLoginModal);
+    }
+  });
+
+  // Tambahkan event listener untuk tombol close
+  document.querySelector('.close-modal').addEventListener('click', closeLoginModal);
+
+  // Tutup modal jika user klik di luar modal
+  window.onclick = function(event) {
+    if (event.target == document.getElementById('loginModal')) {
+      closeLoginModal();
+    }
+  }
+</script>
+
+<script>
+  // Fungsi untuk filter spesies
+  function filterSpecies(category) {
+    const cards = document.querySelectorAll('.species-card');
+    const buttons = document.querySelectorAll('.filter-btn');
+
+    // Update active button style
+    buttons.forEach(btn => {
+      if (btn.getAttribute('data-filter') === category) {
+        btn.classList.remove('bg-[#D9D9D9]');
+        btn.classList.add('bg-[#9AB669]', 'text-white');
+      } else {
+        btn.classList.remove('bg-[#9AB669]', 'text-white');
+        btn.classList.add('bg-[#D9D9D9]', 'text-gray-700');
+      }
+    });
+
+    // Filter cards
+    cards.forEach(card => {
+      const speciesType = card.getAttribute('data-species');
+      if (category === 'all' || speciesType === category) {
+        card.style.display = '';
+        // Tambahkan animasi fade in
+        card.style.opacity = '0';
+        setTimeout(() => {
+          card.style.opacity = '1';
+          card.style.transition = 'opacity 0.3s ease-in-out';
+        }, 50);
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  // Event listener untuk tombol filter
+  document.querySelectorAll('.filter-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      const filter = button.getAttribute('data-filter');
+      filterSpecies(filter);
+    });
+  });
+
+  // Set filter default ke 'all'
+  filterSpecies('all');
+</script>
